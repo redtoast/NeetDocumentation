@@ -1,8 +1,88 @@
-<html>
+<html lang="es">
   <head>
-    <link rel="stylesheet" type="text/css" href="standered.css" />
+    <link rel="stylesheet" type="text/css" href="default.css" />
+    <title>NeetComputers Documentation</title>
   </head>
   <body>
-    <h1>test</h1>
+    <h1>Screen API</h1>
+    <h3>draw()</h3>
+    <p>The draw function takes no arguments and draws <a href="https://en.wikipedia.org/wiki/Multiple_buffering">the graphics buffer</a> to the screen!</p>
+
+    <h3>width, height = getSize()</h3>
+    <p>Gets the dimensions of the screen</p>
+
+    <br>
+    <h2>Applying global attributes</h2>
+    <p>This section contains documentation for applying effects to other drawing bills</p>
+
+    <h3>setColor(R, G, B)</h3>
+    <p>The most basic function for setting the default color of drawn graphics, note that every draw function can <strong>have its RGB color overridden</strong> by adding the RGB values after the functions original parameters. <u>(I.E. drawPixel(x, y, R, G, B))</u></p>
+
+    <h3>setColor(Alpha)</h3>
+    <p>Sets the transparency of drawn graphics, ranging 1 - 256 with 1 being fully invisible. note that unlike RGB graphics you can not manually override the alpha value for each function call.</p>
+
+    <h3>setColor(R, G, B, A)</h3>
+    <p>Combined functionality of setColor(R, G, B) with setColor(Alpha), pretty strait forward.</p>
+
+    <br>
+
+    <h3>setRotation(Angle, X, Y)</h3>
+    <p>Sets any future 'complex' drawing bill to be rotated <i>Angle</i> degrees around X and Y</p>
+
+    <h3>setRotation(Angle)</h3>
+    <p>Rotates the next (and only the next) 'complex' drawing bill <i>Angle</i> degrees around the bills center</p>
+
+    <h3>setRotation()</h3>
+    <p>clears all rotation effects</p>
+
+    <br>
+    <h2>Simple drawing bills</h2>
+    <p>This section documents 'simple' drawing bills not effected by setRotation and are easy to understand</p>
+
+    <h3>drawPixel(X, Y)</h3>
+    <p>Draws a pixel at the X and Y coordinates</p>
+
+    <h3>drawLine(x1, y1, x2, y2)</h3>
+    <p>Draws a line between the two points</p>
+
+    <h3>fill(x1, y1, x2, y2)</h3>
+    <p>draws a solid color square between the two points</p>
+
+    <h3>fill(R, G, B)</h3>
+    <p>clears the screen with the provided color, if your smart you can combine this with setColor(Alpha) to make fade transitions</p>
+
+    <h3>floadFill(X, Y, R, G, B)</h3>
+    <p>Starts floadfilling from the provided point with the provided color, only filling colors exactly matching the color the fill operation started on</p>
+
+    <h3>floadFill(X, Y, Tolerance, R, G, B)</h3>
+    <p>Starts a floadFill operation with a tolerance value that defines what even of difference is allowed when floading</p>
+
+    <br>
+    <h2>Complex drawing bills</h2>
+    <p>This section contains more advanced and fun drawing methods</p>
+
+    <h3>drawRectangle(x1, y1, x2, y2)</h3>
+    <p>Draws a wireframe rectangle around the two points</p>
+
+    <h3>drawCircle(x1, y1, x2, y2)</h3>
+    <p>Draws a circle between the two points, can draw ellipsis</p>
+
+    <h3>drawCircle(X, Y, Radius)</h3>
+    <p>Draws a circle <i>Radius</i> units around X, Y</p>
+
+    <h3>drawPolygon(X, Y, n, Radius)</h3>
+    <p>Draws a polygon around the point, with <i>n</i> sides, with the final shape fitting into <i>Radius</i>/size</p>
+
+    <h3>toRadius(n, Apothem)</h3>
+    <p>Not actually a drawing function, given <i>n</i> amount of size and an <i>Apothem</i>, it will convert that into a radius, meant to enable you to use drawPolygon with a apothem instead of a radius</p>
+
+    <h3>drawBezier(x1, y1, x2, y2, x3, y3)</h3>
+    <p>Draws a smooth <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Bézier curve</a> between the three points</p>
+
+    <h3>drawSpline(X's, Y's)</h3>
+    <p>Draws a mathematical <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a> through the given points</p>
+
+    <h3>drawSpline(AlternatingCord's)</h3>
+    <p>Draws a <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a>, except with the X and Y cords interweaved into one list</p>
   </body>
 </html>

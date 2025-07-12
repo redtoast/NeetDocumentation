@@ -1,92 +1,126 @@
-<html lang="es">
-  <head>
-    <link rel="stylesheet" type="text/css" href="default.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <title>NeetComputers Documentation</title>
-  </head>
-  <body>
-    <h1>Screen API</h1>
-    <h3>draw()</h3>
-    <p>The draw function takes no arguments and draws <a href="https://en.wikipedia.org/wiki/Multiple_buffering">the graphics buffer</a> to the screen!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeetComputers Documentation</title>
+</head>
+<body>
+<div class="sidebar">
+  <h2>Navigation</h2>
+  <a href="#basic">Basic Functions</a>
+  <a href="#color">Color & Transparency</a>
+  <a href="#rotation">Rotation</a>
+  <a href="#simple">Simple Drawing</a>
+  <a href="#complex">Complex Drawing</a>
+  <button class="toggle-theme">Toggle Theme</button>
+</div>
 
-    <h3>width, height = getSize()</h3>
-    <p>Gets the dimensions of the screen</p>
+<div class="content">
+  <h1>Screen API Documentation</h1>
 
-    <hr>
-    <h2>Applying global attributes</h2>
-    <p>This section contains documentation for applying effects to other drawing bills</p>
+  <input type="text" id="searchBar" placeholder="Search functions..." />
 
-    <h3>setColor(R, G, B)</h3>
-    <p>The most basic function for setting the default color of drawn graphics, note that every draw function can <strong>have its RGB color overridden</strong> by adding the RGB values after the functions original parameters. <u>(I.E. drawPixel(x, y, R, G, B))</u></p>
+  <h2 id="basic">Basic Functions</h2>
+  <h3 id="draw" class="collapsible">draw()</h3>
+  <p>Renders the current contents of the <a href="https://en.wikipedia.org/wiki/Multiple_buffering">graphics buffer</a> to the screen.</p>
 
-    <h3>setColor(Alpha)</h3>
-    <p>Sets the transparency of drawn graphics, ranging 1 - 256 with 1 being fully invisible. note that unlike RGB graphics you can not manually override the alpha value for each function call.</p>
+  <h3 id="getsize" class="collapsible">getSize()</h3>
+  <p>Returns the current screen dimensions.</p>
 
-    <h3>setColor(R, G, B, A)</h3>
-    <p>Combined functionality of setColor(R, G, B) with setColor(Alpha), pretty strait forward.</p>
+  <h2 id="color">Color & Transparency</h2>
+  <h3 id="setcolor-rgb" class="collapsible">setColor(R, G, B)</h3>
+  <p>Sets the default RGB color for future drawing operations. You can override this color per call, e.g. <code>drawPixel(x, y, R, G, B)</code>.</p>
 
-    <hr>
+  <h3 id="setcolor-alpha" class="collapsible">setColor(Alpha)</h3>
+  <p>Sets the global transparency (1–256). Cannot be overridden per function call.</p>
 
-    <h3>setRotation(Angle, X, Y)</h3>
-    <p>Sets any future 'complex' drawing bill to be rotated <i>Angle</i> degrees around X and Y</p>
+  <h3 id="setcolor-rgba" class="collapsible">setColor(R, G, B, A)</h3>
+  <p>Sets both color and alpha. Equivalent to combining the above.</p>
 
-    <h3>setRotation(Angle)</h3>
-    <p>Rotates the next (and only the next) 'complex' drawing bill <i>Angle</i> degrees around the bills center</p>
+  <h2 id="rotation">Rotation</h2>
+  <h3 id="setrotation-center" class="collapsible">setRotation(Angle, X, Y)</h3>
+  <p>Applies rotation to future complex drawings around (<code>X</code>, <code>Y</code>).</p>
 
-    <h3>setRotation()</h3>
-    <p>clears all rotation effects</p>
+  <h3 id="setrotation-next" class="collapsible">setRotation(Angle)</h3>
+  <p>Rotates only the next drawing, around its center.</p>
 
-    <hr>
-    <h2>Simple drawing bills</h2>
-    <p>This section documents 'simple' drawing bills not effected by setRotation and are easy to understand</p>
+  <h3 id="clearrotation" class="collapsible">setRotation()</h3>
+  <p>Clears all rotation settings.</p>
 
-    <h3>drawPixel(X, Y)</h3>
-    <p>Draws a pixel at the X and Y coordinates</p>
+  <h2 id="simple">Simple Drawing</h2>
+  <h3 id="drawpixel" class="collapsible">drawPixel(X, Y)</h3>
+  <p>Draws a single pixel at the specified location.</p>
 
-    <h3>drawLine(x1, y1, x2, y2)</h3>
-    <p>Draws a line between the two points</p>
+  <h3 id="drawline" class="collapsible">drawLine(x1, y1, x2, y2)</h3>
+  <p>Draws a straight line between two points.</p>
 
-    <h3>fill(x1, y1, x2, y2)</h3>
-    <p>draws a solid color square between the two points</p>
+  <h3 id="fill-rect" class="collapsible">fill(x1, y1, x2, y2)</h3>
+  <p>Fills a rectangle between two coordinates.</p>
 
-    <h3>fill(R, G, B)</h3>
-    <p>clears the screen with the provided color, if your smart you can combine this with setColor(Alpha) to make fade transitions</p>
+  <h3 id="fill-screen" class="collapsible">fill(R, G, B)</h3>
+  <p>Fills the entire screen with the specified color. Combine with alpha for fades.</p>
 
-    <h3>floadFill(X, Y, R, G, B)</h3>
-    <p>Starts floadfilling from the provided point with the provided color, only filling colors exactly matching the color the fill operation started on</p>
+  <h3 id="floodfill-strict" class="collapsible">floodFill(X, Y, R, G, B)</h3>
+  <p>Flood fill from a point, replacing matching colors.</p>
 
-    <h3>floadFill(X, Y, Tolerance, R, G, B)</h3>
-    <p>Starts a floadFill operation with a tolerance value that defines what even of difference is allowed when floading</p>
+  <h3 id="floodfill-tolerance" class="collapsible">floodFill(X, Y, Tolerance, R, G, B)</h3>
+  <p>Flood fill with color tolerance for near-matches.</p>
 
-    <hr>
-    <h2>Complex drawing bills</h2>
-    <p>This section contains more advanced and fun drawing methods</p>
+  <h2 id="complex">Complex Drawing</h2>
+  <h3 id="drawrect" class="collapsible">drawRectangle(x1, y1, x2, y2)</h3>
+  <p>Draws a wireframe rectangle.</p>
 
-    <h3>drawRectangle(x1, y1, x2, y2)</h3>
-    <p>Draws a wireframe rectangle around the two points</p>
+  <h3 id="drawcircle-2pt" class="collapsible">drawCircle(x1, y1, x2, y2)</h3>
+  <p>Draws an ellipse between two points.</p>
 
-    <h3>drawCircle(x1, y1, x2, y2)</h3>
-    <p>Draws a circle between the two points, can draw ellipsis</p>
+  <h3 id="drawcircle-radius" class="collapsible">drawCircle(X, Y, Radius)</h3>
+  <p>Draws a circle at (<code>X</code>, <code>Y</code>) with radius.</p>
 
-    <h3>drawCircle(X, Y, Radius)</h3>
-    <p>Draws a circle <i>Radius</i> units around X, Y</p>
+  <h3 id="drawpolygon" class="collapsible">drawPolygon(X, Y, n, Radius)</h3>
+  <p>Draws a regular polygon with <code>n</code> sides inside the radius.</p>
 
-    <h3>drawPolygon(X, Y, n, Radius)</h3>
-    <p>Draws a polygon around the point, with <i>n</i> sides, with the final shape fitting into <i>Radius</i>/size</p>
+  <h3 id="toradius" class="collapsible">toRadius(n, Apothem)</h3>
+  <p>Converts apothem to radius for use with polygons.</p>
 
-    <h3>toRadius(n, Apothem)</h3>
-    <p>Not actually a drawing function, given <i>n</i> amount of size and an <i>Apothem</i>, it will convert that into a radius, meant to enable you to use drawPolygon with a apothem instead of a radius</p>
+  <h3 id="drawbezier" class="collapsible">drawBezier(x1, y1, x2, y2, x3, y3)</h3>
+  <p>Draws a <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Bézier curve</a> using three points.</p>
 
-    <h3>drawBezier(x1, y1, x2, y2, x3, y3)</h3>
-    <p>Draws a smooth <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Bezier curve</a> between the three points</p>
+  <h3 id="drawspline-list" class="collapsible">drawSpline(Xs, Ys)</h3>
+  <p>Draws a <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a> through coordinate lists.</p>
 
-    <h3>drawSpline(X's, Y's)</h3>
-    <p>Draws a mathematical <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a> through the given points</p>
+  <h3 id="drawspline-flat" class="collapsible">drawSpline(Coordinates)</h3>
+  <p>Draws a spline using interleaved X, Y coordinate list.</p>
+</div>
 
-    <h3>drawSpline(AlternatingCord's)</h3>
-    <p>Draws a <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a>, except with the X and Y cords interweaved into one list</p>
-  </body>
+<button id="backToTop">Return</button>
+
+<script>
+  document.querySelectorAll(".collapsible").forEach(header => {
+    header.addEventListener("click", () => {
+      header.classList.toggle("open");
+    });
+  });
+
+  document.querySelector(".toggle-theme").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+
+  const backToTop = document.getElementById("backToTop");
+  window.onscroll = () => {
+    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+  };
+  backToTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const searchInput = document.getElementById("searchBar");
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    document.querySelectorAll(".collapsible").forEach(header => {
+      const para = header.nextElementSibling;
+      const visible = header.textContent.toLowerCase().includes(query) || (para && para.textContent.toLowerCase().includes(query));
+      header.style.display = para.style.display = visible ? "" : "none";
+    });
+  });
+</script>
+</body>
 </html>

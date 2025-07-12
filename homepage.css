@@ -1,14 +1,35 @@
 #banner {
-    position: sticky;
-    top: 0;
     background-color: LightSteelBlue;
     border-radius: 5px;
+    border-left: 10px solid #404040;
+    padding-left: 0.5rem;
 }
 
-#banner>h3 {
+#title {
     margin-top: 0px;
     font-family: "Manufacturing Consent", system-ui;
-    font-size: 30px;
+    font-size: 40px;
     margin-bottom: 0px;
     padding-left: 5px;
+}
+
+#header {
+    height: 45;
+    align-items: center;
+    display: flex;
+    margin-left: -4px;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+    margin-top: 2.5px;
+    border-radius: 5px;
+    border-color: BlanchedAlmond;
+    border-width: 5px;
+    border-style: inset;
+}
+
+#page > h1 {
+    margin-bottom: 0px;
 }

@@ -1,0 +1,27 @@
+h1 {
+    font-family: "Bebas Neue", "Oswald";
+    text-decoration: underline;
+    background-color: LightSteelBlue;
+    padding-left: 5px;
+}
+
+h2 {
+    font-family: "Bebas Neue", "Oswald";
+    background-color: LightSteelBlue;
+    padding-left: 5px;
+}
+
+h3 {
+    font-family: Oswald;
+    background-color: lightgrey;
+    padding-left: 5px;
+}
+
+p {
+    background-color: Cornsilk;
+    padding: 5px;
+}
+
+i {
+    text-decoration: underline;
+}

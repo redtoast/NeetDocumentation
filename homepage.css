@@ -1,0 +1,14 @@
+#banner {
+    position: sticky;
+    top: 0;
+    background-color: LightSteelBlue;
+    border-radius: 5px;
+}
+
+#banner>h3 {
+    margin-top: 0px;
+    font-family: "Manufacturing Consent", system-ui;
+    font-size: 30px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+}

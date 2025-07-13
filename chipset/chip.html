@@ -1,0 +1,58 @@
+<html lang="es">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../documentation.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Chip API</title>
+  </head>
+  <body>
+    <h1>Chipset / Chip API</h1>
+    <hr>
+
+    <div>
+      <h3>shutdown()</h3>
+      <p>Forces the entire computer to terminate</p>
+    </div>
+
+    <hr>
+    <h2>Getting system data</h2>
+    <p>This section is all about retrieving data on the computer running this thread</p>
+
+    <div>
+      <h3>getTime()</h3>
+      <p>Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">Unix time</a></p>
+
+      <h3>getTimeAlive()</h3>
+      <p>Gets the amount of milliseconds sense the computer has started ticking</p>
+
+      <h3>getUUID()</h3>
+      <p>Returns the UUID of this computer as a string, this uuid is persistent</p>
+
+      <h3>version()</h3>
+      <p>Gets the current running version of N.E.E.T. computers</p>
+    </div>
+
+    <hr>
+    <h2>Core management</h2>
+    <p>This section explains how to manage <a href="../concepts/cores.html" target="_self">Cores</a></p>
+
+    <div>
+      <h3>getCurrentCore()</h3>
+      <p>Returns the UUID of the core executing this command</p>
+
+      <h3>getCoreCount()</h3>
+      <p>Returns the amount of cores currently running</p>
+
+      <h3>getMaxCoreCount()</h3>
+      <p>Finds the maximum amount of cores this computer can run</p>
+
+      <h3>createCore(script)</h3>
+      <p>Opens a new core running the provided script and returns the cores UUID, if the core cap has not been exited, throws if it has</p>
+
+      <h3>killCore(UUID)</h3>
+      <p>Terminates the core that <i>UUID</i> belongs too, and returns if this operation was successful</p>
+    </div>
+  </body>
+</html>

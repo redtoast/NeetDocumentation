@@ -1,0 +1,31 @@
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="../documentation.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Chip API</title>
+</head>
+<body>
+<h1>Chipset / Event API</h1>
+<p>The event API allows programs to access the built-in event system, giving programs access to user input and other useful data!</p>
+
+<div>
+    <h3>getEventQue()</h3>
+    <p id="getEventQue()">Returns a <a href="../concepts/tuple.html" target="_self">tuple</a> passing the entire event que before clearing it</p>
+
+    <h3>getEventQue(doClear)</h3>
+    <p>Functions the same as <a href="#getEventQue()" class="silent">getEventQue()</a>, with <i>doClear</i> functioning as a toggle for if the event que should be cleared</p>
+
+    <h3>queEvent(eventName, arguments...)</h3>
+    <p>Manually inject an event into the que next tick</p>
+
+    <h3>registerEvent(eventName, function)</h3>
+    <p>Before each tick, every instance of the <i>eventName</i> will be passed as a list into the <i>function</i></p>
+
+    <h3>registerEvent(function)</h3>
+    <p>Before each tick, every instance of any event will be passed as a list into the <i>function</i></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="../documentation.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Peripherals API</title>
+</head>
+<body>
+<h1>Chipset / Peripherals API</h1>
+<p>The peripheral API gives scripts access to the <a href="../concepts/peripherals.html">peripherals</a> available to the computer</p>
+
+<div>
+    <h3>exists(UUID)</h3>
+    <p>Given a peripherals <i>UUID</i>, it will determine if that peripheral exists</p>
+
+    <h3>isPeripheral(table)</h3>
+    <p>Verify that <i>table</i> is a peripheral based of its metadata</p>
+
+    <h3>getUUID(peripheral)</h3>
+    <p>Gets the UUID of <i>peripheral</i></p>
+
+    <h3>getType(peripheral)</h3>
+    <p>Gets the type of <i>peripheral</i> as a string</p>
+
+    <h3>retrieve(UUID)</h3>
+    <p>Retrieves the peripheral with the accosted <i>UUID</i>, or null if no such peripheral exists</p>
+
+    <h3>locate(type)</h3>
+    <p>Returns all peripherals with this type in the form of a <a href="../concepts/tuple.html">tuple</a></p>
+
+    <h3>getAll()</h3>
+    <p>Returns a list of every peripheral register</p>
+</div>
+</body>
+</html>

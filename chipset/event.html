@@ -13,14 +13,14 @@
 <p>The event API allows programs to access the built-in event system, giving programs access to user input and other useful data!</p>
 
 <div>
-    <h3>getEventQue()</h3>
-    <p id="getEventQue()">Returns a <a href="../concepts/tuple.html" target="_self">tuple</a> passing the entire event que before clearing it</p>
+    <h3>getEventqueue()</h3>
+    <p id="getEventqueue()">Returns a <a href="../concepts/tuple.html" target="_self">tuple</a> passing the entire event queue before clearing it</p>
 
-    <h3>getEventQue(doClear)</h3>
-    <p>Functions the same as <a href="#getEventQue()" class="silent">getEventQue()</a>, with <i>doClear</i> functioning as a toggle for if the event que should be cleared</p>
+    <h3>getEventqueue(doClear)</h3>
+    <p>Functions the same as <a href="#getEventqueue()" class="silent">getEventqueue()</a>, with <i>doClear</i> functioning as a toggle for if the event queue should be cleared</p>
 
-    <h3>queEvent(eventName, arguments...)</h3>
-    <p>Manually inject an event into the que next tick</p>
+    <h3>queueEvent(eventName, arguments...)</h3>
+    <p>Manually inject an event into the queue next tick</p>
 
     <h3>registerEvent(eventName, function)</h3>
     <p>Before each tick, every instance of the <i>eventName</i> will be passed as a list into the <i>function</i></p>

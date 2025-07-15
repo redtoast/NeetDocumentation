@@ -1,28 +1,17 @@
 <html lang="es">
 <head>
     <link rel="stylesheet" type="text/css" href="../../documentation.css" />
+    <link rel="icon" href="https://raw.githubusercontent.com/redtoast/NeetComputers/refs/heads/live-20.1/assets_dev/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <title>Screen API</title>
+    <title>File System API</title>
 </head>
 <body>
-<h1>Chipset / Peripherals / 'file system'</h1>
+<a href="../../categories/chipset.html" id="headerlink"><h1>Chipset / Peripherals / 'file system'</h1></a>
 <p>This peripheral represents the computers filesystem, and is created on the computers runtime</p>
 <div>
-    <h3>getPartition(partitionName)</h3>
-    <p>
-        Returns a table representing <i>partitionName</i> or null if no such <a href="../../concepts/partitions.html">partition</a> applies<br>
-        The table returned will match the following layout:<br>
-        <code>'name'</code> represents the path of the partition<br>
-        <code>'readonly'</code> represents if the partition is marked to only be capable of being read<br>
-        <code>'hidden'</code> marks if this partition wants to be treated as hidden, not strictly enforced
-    </p>
-
-    <h3>getPartitions()</h3>
-    <p>Returns a list of tables representing all the <a href="../../concepts/partitions.html">partitions</a> on the file system</p>
-
     <h3 id="open">open(Path, Mode)</h3>
     <p>
         this is the core function of the file-system, if the <i>Path</i> exists this function returns the chosen file in the selected <i>Mode</i> and returns a <a href="#handler">file handler</a> representing the file
@@ -63,6 +52,32 @@
 
     <h3>getChildren(Path)</h3>
     <p>If <i>Path</i> is a directory, returns a list of absolute paths representing this directory's children</p>
+</div>
+
+<h2>Partition operations</h2>
+<p>Operations for modifying or reading <a href="../../concepts/partitions.html">partitions</a></p>
+
+<div>
+    <h3>getPartition(partitionName)</h3>
+    <p>
+        Returns a table representing <i>partitionName</i> or null if no such <a href="../../concepts/partitions.html">partition</a> applies<br>
+        The table returned will match the following layout:<br>
+        <code>'name'</code> represents the path of the partition<br>
+        <code>'readonly'</code> represents if the partition is marked to only be capable of being read<br>
+        <code>'hidden'</code> marks if this partition wants to be treated as hidden, not strictly enforced
+    </p>
+
+    <h3>getPartitions()</h3>
+    <p>Returns a list of tables representing all the <a href="../../concepts/partitions.html">partitions</a> on the file system</p>
+
+    <h3>createPartition(PartitionName)</h3>
+    <p>Attempts to create <i>PartitionName</i> and returns a flag indicating if the operation was a success</p>
+
+    <h3>setPartitionHidden(PartitionName, State)</h3>
+    <p>Sets <i>PartitionName</i>'s hidden quality to <i>State</i>, and returns a flag indicating if the operation was a success</p>
+
+    <h3>setReadOnly(PartitionName)</h3>
+    <p>Marks <i>PartitionName</i> as being readOnly, a readOnly partition cant be made writable</p>
 </div>
 
 <hr>

@@ -93,3 +93,8 @@ code {
     font-weight: bold;
     font-family: "Oswald";
 }
+
+#headerlink {
+    text-decoration: none;
+    color: black;
+}

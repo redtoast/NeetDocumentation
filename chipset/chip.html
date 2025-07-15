@@ -1,6 +1,7 @@
 <html lang="es">
   <head>
     <link rel="stylesheet" type="text/css" href="../documentation.css" />
+    <link rel="icon" href="https://raw.githubusercontent.com/redtoast/NeetComputers/refs/heads/live-20.1/assets_dev/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
@@ -8,13 +9,16 @@
     <title>Chip API</title>
   </head>
   <body>
-    <h1>Chipset / Chip API</h1>
+  <a href="../categories/chipset.html" id="headerlink"><h1>Chipset / Chip API</h1></a>
     <p>The chip API is dedicated to extracting important system information</p>
     <hr>
 
     <div>
       <h3>shutdown()</h3>
       <p>Forces the entire computer to terminate</p>
+
+      <h3>crash(Message)</h3>
+      <p>Stops the computers runtime completely without waiting for the tick cycle to end, and enters a crashed state with <i>Message</i></p>
     </div>
 
     <hr>

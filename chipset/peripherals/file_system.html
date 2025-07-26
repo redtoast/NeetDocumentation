@@ -23,6 +23,7 @@
         <code>'a'</code> append mode: the same as write mode except the handlers buffer is written onto the existing file instead of replacing it<br>
         <code>'r+'</code> read write mode: write mode except you can now read the bytes you just wrote<br>
         <code>'a+'</code> append+ mode: the handler works the read mode however write functions append data to the back of the file<br>
+        <code>'b'</code> can be appended to any mode to interact with it in <a href="https://www.lua.org/pil/21.2.2.html" target="_blank">binary</a><br>
         Any mode that reads requires the file to be readable to open and any writing operation needs the file to be writable, if these conditions are not met the open function will throw 'Access denied'<br>
         write, append, and append+ will create a file if it does not exist<br>
         <br>

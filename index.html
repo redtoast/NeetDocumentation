@@ -1,53 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- deeply inspired by and plagerised from https://thebestmotherfucking.website/ -->
     <link rel="stylesheet" type="text/css" href="homepage.css" />
-    <link rel="icon" href="https://raw.githubusercontent.com/redtoast/NeetComputers/refs/heads/live-20.1/assets_dev/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
-    <title>NeetComputers Docs</title>
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>NEET Documentation</title>
 </head>
-<body>
-<div id="banner">
-    <table>
-        <tr id="header">
-            <th>
-                <a href="home.html">
-                    <img id="logo" src="https://raw.githubusercontent.com/redtoast/NeetComputers/refs/heads/live-20.1/assets_dev/logo.png" alt="">
-                </a>
-            </th>
-            <th>
-                <h3 id="title">red-toast.net/NeetDocumentation/</h3>
-            </th>
-            <th id="menu-wrapper">
-                <table id="menu">
-                    <tr>
-                        <th>
-                            <a href="home.html">
-                                <img id="back" src="https://red-toast.net/assets/arrow-left-svgrepo-com.svg" class="menu_button" alt="back button">
-                            </a>
-                        </th>
-                        <th>
-                            <a href="home.html">
-                                <img id="home" src="https://red-toast.net/assets/home-1-svgrepo-com.svg" class="menu_button" alt="back button">
-                            </a>
-                        </th>
-                    </tr>
+<body style="margin-top: 0; margin-bottom: 0;">
+    <div id="body">
+        <div id="header">
+            <h3>NEET docs</h3>
+            <div id="menu_buttons">
+                <table>
+                    <td>
+                        <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Home</h3></a>
+                    </td>
+                    <td>
+                        <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">About</h3></a>
+                    </td>
+                    <td>
+                        <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                    </td>
                 </table>
-            </th>
-        </tr>
-    </table>
-</div>
-<hr>
-<div id="page">
-    <h1>
-        BIG WARNING
-    </h1>
-    <hr>
-    <p>
-        i still need to write this page lmafo
-    </p>
-</div>
+            </div>
+        </div>
+        <div id="content">
+            <div>
+                <h1>NEET computers documentation</h1>
+            </div>
+            <div>
+                <h2>Navigation</h2>
+                <p>
+                    Welcome to the NEET computers documentation, below are catagorized lists of documentation pages for your clicking plesure
+                </p>
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <h2>
+                    System documentation
+                </h2>
+                <ul>
+                    <li>
+                        <span> > </span><a href="./sysdoc/events.html">How events are handled</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./sysdoc/graphics.html">How graphics are handled</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./sysdoc/files.html">How files are handled</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./sysdoc/scheduling.html">How code execution / scheduling is handled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <h2>
+                    API's
+                </h2>
+                <ul>
+                    <li>
+                        <span> > </span><a href="./apidoc/filesystem.html">FileSystem('s)</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/fileheaders.html">File headers</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/chip.html">Chip (handles machine data)</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/event.html">Events API</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/screen.html">Screen (and all other forms of graphics)</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/flash.html">Flash (quick and dirty non-volitile storage)</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/io.html">IO (peripherals and networking)</a>
+                    </li>
+                    <li>
+                        <span> > </span><a href="./apidoc/projector.html">Projector / Display (API for custon block render)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

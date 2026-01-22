@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagerised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>How Events Work</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+    <div id="body">
+        <div id="header">
+            <h3>NEET docs</h3>
+            <div id="menu_buttons">
+                <table>
+                    <td>
+                        <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Home</h3></a>
+                    </td>
+                    <td>
+                        <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">About</h3></a>
+                    </td>
+                    <td>
+                        <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                    </td>
+                </table>
+            </div>
+        </div>
+        <div id="content">
+            <div>
+                <h1>How are events handled...</h1>
+            </div>
+            <div>
+                <h2>Summary</h2>
+                <p>
+                    In NEET computers, some computer interactions cant / shouldn't be handled with API calls, in these situations (such as <a href="./userinput.html">user inputs</a>, peripheral interactions, external stimuli, or other triggers), information pertaining to the interaction are recorded as "events"
+                </p>
+                <p>
+                    Events consist of a list of values, starting with a descriptor of the event and followed by event specific parameters containing information about the event, for example a key press event would look like ["keyPressed", &ltnumber representing the key&gt, &lta letter representing the key, or nothing if not applicable&gt, &ltmodifier key mapping&gt]
+                </p>
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <h2>
+                    Event Access
+                </h2>
+                <p style="color: red">(warn) doesn't currently work like this but it will soon</p>
+                <p>
+                    Events are categorized into special groups, including user, legacy, system, networking, and external; each of these groups represent a buffer, that fills with events that pertain to the category, these buffers can have their oldest entry pulled out of them (read and removed) using the <a href="../apidoc/event.html">events API.</a>
+                </p>
+                <p>
+                    If a event buffer overfills it limit of 35 events, the oldest event will be automaticly destroyed to make room. additional event buffers can be disabled in code, causing them to not receive new events (for performance reasons).
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

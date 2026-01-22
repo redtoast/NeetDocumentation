@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagerised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>How graphics work</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+    <div id="body">
+        <div id="header">
+            <h3>NEET docs</h3>
+            <div id="menu_buttons">
+                <table>
+                    <td>
+                        <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Home</h3></a>
+                    </td>
+                    <td>
+                        <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">About</h3></a>
+                    </td>
+                    <td>
+                        <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                    </td>
+                </table>
+            </div>
+        </div>
+        <div id="content">
+            <div>
+                <h1>Everything about graphics...</h1>
+            </div>
+            <div>
+                <h2>Capabilities</h2>
+                <p>
+                    Computers use pixel graphics, where the screen contains re-colorable tiles, this is quite mundane but its a improvement of this mods primary inspiration <a href="https://tweaked.cc/">Computer Craft</a>, which uses mainly a font render, and a adjustable palette of colors. also a improvement is how NEET used 24 bit color for its main display with an alpha channel (transparency)
+                </p>
+                <p>
+                    also of note are the 'physical' displays on the computer blocks, a small binary color (nothing or green) 3d renderer thats <a href="../apidoc/projector.html">API controlable</a>, and can be animated in real time to give computers a visual flare programmatically.
+                </p>
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <h2>
+                    Built in graphic API
+                </h2>
+                <p>
+                    The main screen is linked to a powerful (if hacked together, sorry) <a href="../apidoc/screen.html">API,</a> containing lots of fun functions for bulk drawing data, flood fill tools, fun experimental functions for drawing bezier curves, circles, and every kind of octo/hexa/trio-hedren, and finally copy pasting / saving graphics via independent graphical 'layers' that can be copied from the screen or created independently
+                </p>
+                <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                    <img src="../3d_demo.png" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="picture of ingame computer screen displaying a 3d scene with shadows and lighting">
+                    <figcaption style="margin-left: 3px;">3D demo made by <a href="https://github.com/SpartanSf">SpSf</a> after running ingame</figcaption>
+                </figure>
+                <p>
+                    Additionally the ingame renders can make quite the impression of their own!
+                </p>
+                <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                    <img src="../projector_demo.gif" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="clip of multiple computers all running a ingame display">
+                    <figcaption style="margin-left: 3px;">Renderer demo made by myself (lead dev)</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

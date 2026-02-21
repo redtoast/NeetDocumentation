@@ -162,3 +162,23 @@ figure {
     content: "";
     clear: both;
 }
+
+.apilookupleft {
+    width: 35%;
+    background-color: rgb(240, 240, 240);
+}
+
+.apilookupright {
+    width: 65%;
+}
+
+.apilookupleft, .apilookupright {
+    border: 1px solid rgb(204, 204, 204);
+    padding: 4px 6px;
+}
+
+.apilookup {
+    width: 95%;
+    border-collapse: collapse;
+    border: 2px solid rgb(204, 204, 204);
+}

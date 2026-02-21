@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>How NEET ticks</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Everything about scheduling...</h1>
+        </div>
+        <div>
+            <h2>What's scheduling</h2>
+            <p>
+                In the context of NEET computers, scheduling is the process the mod uses to assign runtime to each computer!
+            </p>
+
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Introduction
+            </h2>
+            <p>
+                First for explained scheduling is a computers 'state', there are 4 possible states each corresponding to the color of the computers indicator light on the block model, 'black' - 'off', 'green' - 'on', 'blue' - 'paused', and 'red' - 'crashed'
+            </p>
+            <p>
+                when a computer block entity is ticked and in a 'on' state it will try to submit a ticket with the scheduler
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                The scheduler
+            </h2>
+            <p>
+                The scheduler is a java program running on its own threads separate from the rest of the game, when a computer requests runtime from it
+                looks for the least busy thread and assigns the ticket to the thread, and keeps log of all computers currently waiting for runtime
+            </p>
+            <p>
+                A computer requesting runtime that is still waiting for a previous request to complete will have its request denied, meaning if the threads cant keep up computers
+                will skip ticks
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

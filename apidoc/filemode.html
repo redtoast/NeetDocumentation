@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>File mode - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>File operation modes</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                When opening a file header, you will need to provide a mode. In lua a file mode determines what the file header
+                can and can't do, or alters how it processes information!
+            </p>
+            <p>
+                Below is a cheat sheet of every mode and its property's. property's including the ability to read, write, process binary
+                , if it truncates (overwrites) files, and if it creates a file at path if it doesn't exist
+            </p>
+            <h4 style="margin-bottom: 2px;">Attribute summery</h4>
+            <table>
+                <tr><td>
+                    Can read determines if attempting to read the file will fail
+                </td></tr>
+                <tr><td>
+                    Can write determines if the header can publish new data into the file
+                </td></tr>
+                <tr><td>
+                    Binary operation will allow the file to process non-letter data
+                </td></tr>
+                <tr><td>
+                    Truncate determines if the file will be overwritten when written too
+                </td></tr>
+                <tr><td>
+                    Create if it doesn't exist will create the file when its being opened if it doesn't already exist
+                </td></tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Cheat Sheet!
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(220, 220, 220);">
+
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>Can Read?</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>Can Write?</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>Binary operation?</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>Truncates?</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>Create if does not exist?</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>r</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>w</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b> a</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>r+</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>w+</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>a+</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>rb</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>wb</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>ab</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>rb+</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>wb+</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                        <b>ab+</b>
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        False
+                    </td>
+                    <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                        True
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>File Header documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>File Header documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                When working with individual files, you will need to understand file "headers", the idea is the header is an object based off a file that can be used to read its data or push new data into it with
+                the risk of direct file interaction. Changes made to a header don't instantly change the file being represented, and reading will only capture the contents of the file when the header was "opened".
+            </p>
+            <p>
+                In NEET file headers are the only builtin way to interact with files themselves, however the rest of the file system is accesses via its <a href="filesystem.html">perspective API</a>, and the file system API is also <a href="filesystem.html#open">where headers are created</a>
+            </p>
+            <p>
+                For reference its good practice to "close" the header because as it's only a puppet of the real file, it's using up as much ram and some as the file does file pace! "closing" the header will make it inoperable but its good practice for mitigating memory leaks and playing nice with the game server.
+            </p>
+            <p>Note for people who know lua: although a header is an object, call its functions directly [header.seek()] instead of normal lua object notation [header:seek()], because unlike normal lua objects headers contain no table data, just pre-programed functions</p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        read(format = 'l')
+                    </td>
+                    <td class="apilookupright">
+                        Reads data from the file header at the read cursor according to the format
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        read(amount)
+                    </td>
+                    <td class="apilookupright">
+                        Reads the 'amount' bytes of data past the read cursor
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        write(bytes)
+                    </td>
+                    <td class="apilookupright">
+                        Writes the given data to the header according to the file operation mode
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        seek(whence = 'cur', offset = 0)
+                    </td>
+                    <td class="apilookupright">
+                        Repositions / probes the read cursors position
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        flush()
+                    </td>
+                    <td class="apilookupright">
+                        Saves the header's state to the file
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        close()
+                    </td>
+                    <td class="apilookupright">
+                        Flushes the file and terminates the resources its using, makes the header inoperable
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                read(format = 'l')
+            </h3>
+            <p>
+                Starts reading data from the reading cursor to an endpoint determined by the Format parameter, the cursor will then be moved to that point
+            </p>
+            <p>
+                The "l"(lowercase L) and "L" formats will read to the next line, if "L" format then the newline character will be returned as well
+            </p>
+            <p>
+                The "a" format will read until the end of the file
+            </p>
+            <u>Parameters: Format[String] default value "l"</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                read(amount)
+            </h3>
+            <p>
+                Starts reading data from the read cursor for 'amount' characters, then moved the read cursor past the last character read
+            </p>
+            <u>Parameters: Amount[Integer]</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                write(bytes)
+            </h3>
+            <p>
+                Writes the data provided to the file header (if supplied as a int the number will be treated like a byte) to the file (some file modes will wipe the file before writing, to append information to the end of a existing file use append (a) file modes)
+            </p>
+            <u>Parameters: Bytes[String or Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                seek(whence = 'cur', offset = 0)
+            </h3>
+            <p>
+                Repositions the read cursor, starting from a position specified by whence, to the offset
+            </p>
+            <p><u>"set" whence moves the cursor to 'offset' position away from the start of the file, setting its location</u></p>
+            <p><u>"cur" whence moves the cursor by 'offset' amount away from the cursors current position, accepts negative numbers</u></p>
+            <p><u>"end" whence moves the cursor 'offset' away from the end of the file, must be negative</u></p>
+            <p>A neat trick is because by default seek parameters move zero units away from current pos, and returns the cursors position, calling seek with no arguments will fetch the cursors position!</p>
+            <u>Parameters: Whence[String], Offset[Integer]</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                flush()
+            </h3>
+            <p>
+                Pushes the current state of the file header onto the file, I.E. saves its content
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                close()
+            </h3>
+            <p>
+                Flushes the file (saves it) before relocating its resources, making the file inoperable (every function called after will error)
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

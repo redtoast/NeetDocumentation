@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Chip documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Chip documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The 'chip' API allows you to make some baseline interactions with the machine running code (the minecraft block not your pc),
+                 including allowing programs to probe for the current Unix time, fetch the machines make and model, read its uuid, and manipulate the computers state.
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        getUUID()
+                    </td>
+                    <td class="apilookupright">
+                        Fetches a text representation of the computers unique one of a kind id
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getMachine()
+                    </td>
+                    <td class="apilookupright">
+                        Gets a text description of the type of computer running code
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        crash(message)
+                    </td>
+                    <td class="apilookupright">
+                        Forcefully crashes the computer with the given error message
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        shutdown()
+                    </td>
+                    <td class="apilookupright">
+                        Forcefully shuts down the computer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        version()
+                    </td>
+                    <td class="apilookupright">
+                        Looks up the current version of NEET computers in service
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getTime()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        ToAsciiFromGLFW(code, mod = 0)
+                    </td>
+                    <td class="apilookupright">
+                        Converts GLFW codes to ascii
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                getUUID()
+            </h3>
+            <p>
+                Gets the running machines UUID
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                getMachine()
+            </h3>
+            <p>
+                Gets a text description of the machine running (example: "desktop" or "office")
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                crash(message)
+            </h3>
+            <p>
+                Crashes the computer with the given error message
+            </p>
+            <u>Parameters: Message[String]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                shutdown()
+            </h3>
+            <p>
+                Shuts down the computer
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                getTime()
+            </h3>
+            <p>
+                Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                ToAsciiFromGLFW(code, mod = 0)
+            </h3>
+            <p>
+                Converts key codes from GLFW to ASCII, all codes in NEET are ascii by default but this function exists for legacy systems (Computer Craft integration)
+            </p>
+            <u>Parameters: Code[Integer], Mod[Integer] default value 0</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

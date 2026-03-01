@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Event documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Event documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The 'event' API grants you full programmatic access to the running computer's event queues, as described in the <a href="../sysdoc/events.html">System documentation page</a> for events, the api to
+                multiple different queues for events separated by category, and a special "all" queue that contains all events regardless of category.
+            </p>
+            <p>The event api exists in the global space as "event" or "_G.event"</p>
+            <h2>Categories?</h2>
+            <p>each computer contains multiple categories, and every event is registered to one of them based off its relevance to the category. Below is a list of all categories</p>
+            <ul>
+                <li>Unlabeled</li>
+                <li>User</li>
+                <li>System</li>
+                <li>Network</li>
+                <li>Peripheral</li>
+                <li>Compatibility</li>
+                <li>All</li>
+            </ul>
+            <p>
+                when a queue is retrieved by the API, all events that are returned are also removed from their home que, meaning that a event cant be read from the computer twice. its also relevant that each event is
+                capped at 75 events capacity, and if needed old events will be forgotten to make room
+            </p>
+            <h2>The "All" category</h2>
+            <p>
+                The all category is unique to its neighboring categories, as all events regardless of category are also occupying All,
+                it's not possible to queue events directly to all (doing so will instead categorize them as Unlabeled), however when a
+                event is removed from the all que during reading it will also be removed from its assigned parent queue, and likewise
+                events removed from traditional queues will have their clone removed from the all queue automatically, to uphold the rule that no event can be read twice.
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        getQueue(Category, filter = nil)
+                    </td>
+                    <td class="apilookupright">
+                        Pulls every event eligible out of the queue
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getFirst(Category, filter = nil)
+                    </td>
+                    <td class="apilookupright">
+                        Pulls the first eligible item from the queue
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        clear()
+                    </td>
+                    <td class="apilookupright">
+                        Clears all event queues
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                getQueue(Category, filter = nil)
+            </h3>
+            <p>
+                Pulls every event of the type specified by filter, or every event is no filter is provided
+            </p>
+            <p>Because events are represented as lists, this function returns a list of lists that contain event data</p>
+            <u>Parameters: Category[String, non-case-specific], Filter[String] default value nil</u>
+            <u style="margin-left: 15px;">Returns: [[String, args...]...]</u>
+        </div>
+        <div>
+            <h3>
+                getFirst(Category, filter = nil)
+            </h3>
+            <p>
+                Pulls the first event from the queue that fits the filter, or if there's no filter just the first event, and if there's no event that it returns nil
+            </p>
+            <u>Parameters: Category[String, non-case-specific], Filter[String] default value nil</u>
+            <u style="margin-left: 15px;">Returns: [String, args...] or nil</u>
+        </div>
+        <div>
+            <h3>
+                clear()
+            </h3>
+            <p>
+                Completely wipes every event queue
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

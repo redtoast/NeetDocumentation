@@ -42,12 +42,11 @@
                 <h2>
                     Event Access
                 </h2>
-                <p style="color: red">(warn) doesn't currently work like this but it will soon</p>
                 <p>
                     Events are categorized into special groups, including user, legacy, system, networking, and external; each of these groups represent a buffer, that fills with events that pertain to the category, these buffers can have their oldest entry pulled out of them (read and removed) using the <a href="../apidoc/event.html">events API.</a>
                 </p>
                 <p>
-                    If a event buffer overfills it limit of 35 events, the oldest event will be automaticly destroyed to make room. additional event buffers can be disabled in code, causing them to not receive new events (for performance reasons).
+                    If a event buffer overfills its limit of 75 events, the oldest event will be automaticly destroyed to make room. additional event buffers can be disabled in code, causing them to not receive new events (for performance reasons).
                 </p>
             </div>
         </div>

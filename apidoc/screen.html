@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Screen documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Screen documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The screen API is a very large, maybe overcomplicated, mostly stable, powerful graphical tool that allows for advanced computer graphics.
+                It may look very intimidating, but I ask that you take things slowly with this api, as to not scare it away, its more scared of you than you are of it!
+            </p>
+            <p>The screen api exists in the global space as "screen" or "_G.screen"</p>
+            <h2>How does it work</h2>
+            <p>
+                As it is in totality a complicated system, we should break the graphics API into smaller pieces to ease our understanding.
+                First the system is <a href="https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics">double buffered</a>,
+                meaning that instead of draw functions writing to the screen being shown, graphics are first drawn to a invisible screen that can
+                be copied onto the visible screen, preventing the user from seeing half drawn graphics and visual artifacts, just remember to call draw() to render a new frame!
+            </p>
+            <p>
+                The drawing functions themselves will by default draw a color set in memory, here called the default color, unless given a specific
+                color to draw. Also included is a default Alpha value that cant be set per function call like normal color, Alpha transparency is a 0-255 value that tells the
+                api how transparent newly drawn graphics are, with 0 being invisible and 255 being opaque.
+            </p>
+            <p>
+                Another useful tool available is layers, layers share most functions with the screen, but both have center exclusive functions unique to themselves.
+                Layers are like small mini-screens that are not double buffered or inherently visible, however their graphics can be drawn onto other layers or the main screen.
+                Layers can be copied from other graphical objects or created blank!
+            </p>
+            <p>
+                Also, you can rotate all graphic operations using the provided functions to do so, which is pretty cool.
+            </p>
+            <h2>Why is the API like this</h2>
+            <p>
+                In short, I was bored. the majority of the API was written long before the rest of NEET computers while I was bored out of my mind in class,
+                the result is a graphics demo api being ported to minecraft because I think it's really cool, and it's my mod I make the rules
+            </p>
+            <p>
+                Although the entire API doesn't meet the same standards of polish as the other APIs, its quite reliable and functional,
+                however error handling is not always on point and circles aren't 100% symmetrical for some fucking reason I refuse to fix,
+                but you should be safe if you stick to shallow waters, which is what I recommend for people new to the mod or programing!
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <p>
+                note: "+ RGB" tag means the function can have its color manually overridden by appending red, green, and blue 0-255 color values after the normal parameters
+            </p>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        getSize()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the size of the screen / layer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setColor(R, G, B)
+                    </td>
+                    <td class="apilookupright">
+                        sets the default color for drawing operations
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setColor(R, G, B, A)
+                    </td>
+                    <td class="apilookupright">
+                        sets the default color and alpha for drawing operations
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setColor(A)
+                    </td>
+                    <td class="apilookupright">
+                        sets the default alpha for drawing operations
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setRotation(angle, x, y)
+                    </td>
+                    <td class="apilookupright">
+                        Rotates all drawing operations around x, y by the angle
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setRotation(angle)
+                    </td>
+                    <td class="apilookupright">
+                        Rotates complex drawing operations around their center by the angle
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setRotation()
+                    </td>
+                    <td class="apilookupright">
+                        Stops all rotation
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        copy(x1, y1, x2, y2)
+                    </td>
+                    <td class="apilookupright">
+                        Copies the given region to a new layer object
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawLayer(x, y, layer)
+                    </td>
+                    <td class="apilookupright">
+                        Draws the contents of a layer to the screen starting at the coordinates
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawPixel(x, y) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Draws a pixel at the point
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawLine(x1, y1 ,x2, y2) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Draws a line between the two points
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawRectangle(x1, y1, x2, y2) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Draws a hollow rectangle over the region
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawCircle(x1, y1, x2, y2) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Attempts to draw a circle within the given region
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawCircle(x, y, radius) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        draws a circle at the given point
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawPolygon(x, y, n, radius) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Draws a <a href="https://en.wikipedia.org/wiki/Regular_polygon">regular polygon</a> with n sides at the point given
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawBezier(x1, y1, x2, y2, x3, y3) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Draws a <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">B&#x00E9zier curve</a> through the points
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawSpline(Xs, Ys) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Draws a <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a> through all the points
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawSpline(points) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Also draws a spline through all the points
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        toRadius(n, apothem)
+                    </td>
+                    <td class="apilookupright">
+                        Converts an <a href="https://en.wikipedia.org/wiki/Apothem">apothem</a> and n sides to an applicable radius for drawing polygons
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        fill() + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Sets the entire screen to a color
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        fill(x1, y1, x2, y2) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Sets a specific region of the screen to a color
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        floodFill(x, y, tolerance = 0) + RGB
+                    </td>
+                    <td class="apilookupright">
+                        Preforms a <a href="https://en.wikipedia.org/wiki/Flood_fill">flood fill</a> at the position with an optional color tolerance [0-255]
+                    </td>
+                </tr>
+            </table>
+            <h3>Screen exclusive functions</h3>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        draw()
+                    </td>
+                    <td class="apilookupright">
+                        Draws all changes made to the object onto the visible screen
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        createLayer(sizeX, sizeY, transparent)
+                    </td>
+                    <td class="apilookupright">
+                        creates a new blank layer
+                    </td>
+                </tr>
+            </table>
+            <h3>Layer exclusive functions</h3>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        close()
+                    </td>
+                    <td class="apilookupright">
+                        Terminates the layers resources used by the layer and makes it inoperable
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        isClosed()
+                    </td>
+                    <td class="apilookupright">
+                        Checks to see if the layer is closed
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getAsArray()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the layer as raw data
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

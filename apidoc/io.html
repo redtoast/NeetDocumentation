@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>IO documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>IO documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                Currently only allows computers to interface with peripherals, however functionality will be extended to networking as well
+            </p>
+            <p>The io api exists in the global space as "io" or "_G.io"</p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        getPeripherals()
+                    </td>
+                    <td class="apilookupright">
+                        Gets a list of all attached peripheral IDs
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getPeripheralType(id)
+                    </td>
+                    <td class="apilookupright">
+                        Gets a text description of a peripheral
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        wrapPeripheral(id)
+                    </td>
+                    <td class="apilookupright">
+                        Creates an interface to interact with a peripheral
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        callFunction(id, function, arguments...)
+                    </td>
+                    <td class="apilookupright">
+                        calls a specific function from a peripheral
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                getPeripherals()
+            </h3>
+            <p>
+                Return a list of all attached peripherals' id
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: [string]</u>
+        </div>
+        <div>
+            <h3>
+                getPeripheralType(id)
+            </h3>
+            <p>
+                Gets a text description of a peripheral based on its id
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                wrapPeripheral(id)
+            </h3>
+            <p>
+                Wraps the peripheral into ann API like table that contains its functions in a lua accessible object
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: Table</u>
+        </div>
+        <div>
+            <h3>
+                callFunction(id, function, arguments...)
+            </h3>
+            <p>
+                Attempts to call a specific function from a peripheral, passing the arguments following the function parameter
+            </p>
+            <u>Parameters: ID[String], Function[String], Arguments[Any]...</u>
+            <u style="margin-left: 15px;">Returns: Any</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

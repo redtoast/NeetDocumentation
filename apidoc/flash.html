@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Flash documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Flash documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                A quick and dirty way to store data, unlike the file system the flash API saves data directly to the computers NBT data
+            </p>
+            <p>The flash api exists in the global space as "flash" or "_G.flash"</p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        set(key, value)
+                    </td>
+                    <td class="apilookupright">
+                        Sets an item from flash
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        get(key, default = nil)
+                    </td>
+                    <td class="apilookupright">
+                        Gets an item from flash or default
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                set(key, value)
+            </h3>
+            <p>
+                Stores the value under key
+            </p>
+            <u>Parameters: Key[String], Value[Any primitive]</u>
+            <u style="margin-left: 15px;">Returns: Any primitive</u>
+        </div>
+        <div>
+            <h3>
+                get(key, default = nil)
+            </h3>
+            <p>
+                Gets the value stored under key, or if the value doesn't exist returns the default parameter, which is by default nil
+            </p>
+            <u>Parameters: Key[String], Default[Any] default value nil</u>
+            <u style="margin-left: 15px;">Returns: Any primitive</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

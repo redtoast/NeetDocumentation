@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Mouse documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Mouse event documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                NEET provides a plethora of events for tacking the actions and movements of the users computer mouse,
+                it's important to note that if multiple plays has the computer open, all of their mice will send events to the
+                computer, which may cause unintended bugs (this may be fixed in future updates)
+            </p>
+            <p>
+                Also mouse events will specify what mouse button is in use with the 'key' parameter, a shortcut for this is
+                0&nbsp;=&nbsp;left click, 1&nbsp;=&nbsp;right click, and 2&nbsp;=&nbsp;middle mouse, and other numbers may map to other buttons on the mouse.
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Event table
+            </h2>
+            <p style="margin-bottom:2px;">mouseClicked [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>mouseClicked[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>x[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>y[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>key[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>triggers when a mouse button is clicked, providing the mouses position and key pressed</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">mouseReleased [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>mouseReleased[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>x[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>y[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>key[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>triggers when a mouse button is released, providing the mouses position and key let go of</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">mouseMoved [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>mouseMoved[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>x[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>y[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"  class="eventlowercells">
+                        <span>Triggers every time the mouse moved from one cell of the screen to another, no event is fired if the mouse moves off the GUI</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">mouseDragged [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>mouseDragged[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>x[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>y[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>key[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>is called when the mouse is being moved between cells with a button depressed, click and release events will automatically be inserted if the mouse drags off / onto the screen from off the GUI</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">mouseScrolled [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>mouseScrolled[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>x[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>y[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>h-span[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>v-span[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5"  class="eventlowercells">
+                        <span>Is called when the mouse scroll wheel is activated, providing current position and both horizontal and vertical scroll amounts</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

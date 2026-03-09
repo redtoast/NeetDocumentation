@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Dynamic Light documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Dynamic Light documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The Dynamic Light is a very simple peripheral that programmatically changes its own light level, it's a great starting point for learning the peripheral system!
+            </p>
+            <p>
+                Its also noteworthy that it doesn't change luminosity instantly, instead warming or cooling to the desired light
+                level over time (a rate of 1 light lever per tick)
+            </p>
+            The Dynamic Light is categorized as "neetcomputers:dynamic_light" in the IO API
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        setLuminance(luminance)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the target light level of the lamp
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        turnOn()
+                    </td>
+                    <td class="apilookupright">
+                        Sets the target light level to it max setting
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        turnOff()
+                    </td>
+                    <td class="apilookupright">
+                        Sets the target light level to zero
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                setLuminance(luminance)
+            </h3>
+            <p>
+                Sets the target light level of the lamp with an input range of 0-15
+            </p>
+            <u>Parameters: Luminance[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                turnOn()
+            </h3>
+            <p>
+                Sets the target light level to 15 (the maximum)
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                turnOff()
+            </h3>
+            <p>
+                Sets the target light level to zero
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

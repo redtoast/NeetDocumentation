@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Keybinds documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Key bind event documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                Key presses are tracked using events in NEET computers, events contain an ASCII code with a few extra codes bolted on the end to cover certain action keys,
+                as well as a letter representing the key and a modifier map.
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Event table
+            </h2>
+            <p style="margin-bottom:2px;">keyPressed [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>keyPressed[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>code[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>letter[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>modifiers[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>Triggered when a key is pressed, returns an ASCII keycode, a letter representing the key pressed if applicable, and modifier key bitmap.</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">keyReleased [User]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>keyReleased[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>code[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>letter[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>modifiers[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>Triggered when a key is released, returns an ASCII keycode, a letter representing the key pressed if applicable, and modifier key bitmap.</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

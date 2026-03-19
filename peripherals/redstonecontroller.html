@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Redstone Controller documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Redstone Controller documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The Redstone Controller is a peripheral that allows computers to interface with redstone, both emiting and detecting redstone power!
+            </p>
+            <img src="../redstone_controller.png" style="width:10%;">
+            <p>
+                Note that the Redstone Controller will accept both relative (left, right, front, back, top, bottom), and cardinal
+                directions (north, south, east, west, up, down), the block texture also has labels for its left and right sides if
+                your dyslexic like I am.
+            </p>
+            The Redstone Controller is categorized as "neetcomputers:redstone_controller" in the IO API
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        getInput(side)
+                    </td>
+                    <td class="apilookupright">
+                        Detects and returns the redstone power level at the given side
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getOutput(side)
+                    </td>
+                    <td class="apilookupright">
+                        Gets the current output setting for the given side
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setOutput(side, powerLevel)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the output setting for the side
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setOutput(side, powered)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the output setting for the side to either on or off
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setAllOutputs(powerLevel)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the output setting for all sides
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setAllOutputs(powered)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the output setting for all sides to either on or off
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getSides()
+                    </td>
+                    <td class="apilookupright">
+                        Gets a table of the detected input levels on all sides with relative direction keys
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getSidesCardinal()
+                    </td>
+                    <td class="apilookupright">
+                        Gets a table of the detected input levels on all sides with cardinal direction keys
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                getInput(side)
+            </h3>
+            <p>
+                Detects and returns the redstone power level at the given side
+            </p>
+            <u>Parameters: Side[String]</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                getOutput(side)
+            </h3>
+            <p>
+                Gets the current output setting for the given side
+            </p>
+            <u>Parameters: Side[String]</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                setOutput(side, powerLevel)
+            </h3>
+            <p>
+                Sets the output setting for the side
+            </p>
+            <u>Parameters: Side[String], PowerLevel[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                setOutput(side, powered)
+            </h3>
+            <p>
+                Sets the output setting for the side to either on or off
+            </p>
+            <u>Parameters: Side[String], Powered[Bool]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                setAllOutputs(powerLevel)
+            </h3>
+            <p>
+                Sets the output setting for all sides
+            </p>
+            <u>Parameters: PowerLevel[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                setAllOutputs(powered)
+            </h3>
+            <p>
+                Sets the output setting for all sides to either on or off
+            </p>
+            <u>Parameters: Powered[Bool]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                getSides()
+            </h3>
+            <p>
+                Gets a table of the detected input levels on all sides with relative direction keys
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                getSidesCardinal()
+            </h3>
+            <p>
+                Gets a table of the detected input levels on all sides with cardinal direction keys
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

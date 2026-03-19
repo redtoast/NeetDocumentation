@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Simple Display documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Simple Display documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The Simple Display is a large fun multi block graphical display!
+            </p>
+            <img src="../simple_display.png" style="width:50%;">
+            <p>
+                When multiple units are placed together they will merge to form a larger display, from the perspective of a computer
+                they are all one peripheral, will appear as one peripheral, and will work the same but with a larger screen size.
+                They also use the <a href="../apidoc/projector.html">Projector</a> API, and return its functions as its peripheral.
+            </p>
+            <p>
+                You can also shift click the display with an empty hand to clear it, unless disabled in mod settings.
+            </p>
+            The Simple Display is categorized as "neetcomputers:simple_display" in the IO API
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table (copied from projector API because they are the same)
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        clear()
+                    </td>
+                    <td class="apilookupright">
+                        Wipes the display buffer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        draw()
+                    </td>
+                    <td class="apilookupright">
+                        Updates the display
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getSize()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the display's size
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawPixel(x, y)
+                    </td>
+                    <td class="apilookupright">
+                        Draws a pixel to the display buffer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawLine(x1, y1, x2, y2)
+                    </td>
+                    <td class="apilookupright">
+                        Draws a line to the display buffer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        drawRec(x1, y1, x2, y2)
+                    </td>
+                    <td class="apilookupright">
+                        Draws a rectangle to the display buffer
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                clear()
+            </h3>
+            <p>
+                Clears the display buffer
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                draw()
+            </h3>
+            <p>
+                Updates the display to match the display buffer
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                getSize()
+            </h3>
+            <p>
+                Gets the size of the display
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Int, Int</u>
+        </div>
+        <div>
+            <h3>
+                drawPixel(x, y)
+            </h3>
+            <p>
+                Draws a pixel to the display buffer
+            </p>
+            <u>Parameters: X[Integer], Y[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                drawLine(x1, y1, x2, y2)
+            </h3>
+            <p>
+                Draws a line between the two points to the display buffer
+            </p>
+            <u>Parameters: X1[Integer], Y1[Integer], X2[Integer], Y2[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                drawRec(x1, y1, x2, y2)
+            </h3>
+            <p>
+                Draws a solid rectangle between the two points to the display buffer
+            </p>
+            <u>Parameters: X1[Integer], Y1[Integer], X2[Integer], Y2[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

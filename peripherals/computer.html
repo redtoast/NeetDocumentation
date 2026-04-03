@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Computer (Peripheral) documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Computer (Peripheral) documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                Computer are not only able to receive peripherals, but are themselves peripherals, and allow computers to control each other and even preform basic communication.
+            </p>
+            <p>
+                Note: that state changing commands might not be applied instantly, and programs should check before making assumptions about the state of a computer being controlled
+            </p>
+            <p>
+                Note the second: the UUID of the peripheral is the exact same as the UUID for the computer, literally the exact same.
+            </p>
+            All Computers are categorized as "neetcomputers:computer" in the IO API
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        shutdown()
+                    </td>
+                    <td class="apilookupright">
+                        Instructs the computer to shut down at its nearest convenience
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        startup()
+                    </td>
+                    <td class="apilookupright">
+                        Instructs the computer to startup at its nearest convenience
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getId()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the UUID of the computer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getMachine()
+                    </td>
+                    <td class="apilookupright">
+                        Gets a string definition of the type of the computer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        isOn()
+                    </td>
+                    <td class="apilookupright">
+                        Checks if the computer is on
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        notify(...)
+                    </td>
+                    <td class="apilookupright">
+                        Sends message to computer
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                shutdown()
+            </h3>
+            <p>
+                Tells the targeted computer to shut down, not instant.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                startup()
+            </h3>
+            <p>
+                Tells the targeted computer to power up, is instant but the computer won't be ready to run code instantly.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                getId()
+            </h3>
+            <p>
+                Gets the UUID of the computer.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                getMachine()
+            </h3>
+            <p>
+                Gets a string definition of the type of the computer.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                isOn()
+            </h3>
+            <p>
+                Checks if the computer is on.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Boolean</u>
+        </div>
+        <div>
+            <h3>
+                notify(...)
+            </h3>
+            <p>
+                Queues a "notification" event in the target computers peripheral event queue, the event containing the parameters passed to the function.
+            </p>
+            <p>
+                Note: the notification event is not documented anywhere else on these docs because I cant guarantee any standardisation, use with caution.
+            </p>
+            <u>Parameters: up to six primitives or strings</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+    </div>
+</div>
+</body>
+</html>

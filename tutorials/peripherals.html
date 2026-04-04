@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Peripheral Tutorial - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Peripheral Tutorial</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                "Peripherals," or devices attached to a computer, are implemented in NEET computers to enhance computer integration with the world around them and to provide tools for the player to exploit.
+                Peripherals, as a system, consisted of peripheral devices, contained accessible functionality, computers, which can interact with and utilize peripherals, and cables which determine what computers access what peripherals.
+                This tutorial will instruct you how to connect and configure peripherals and cables, and introduce basic concepts, but for instructions on how to program them in the computer refer to <a href="../apidoc/io.html">The IO API</a>.
+            </p>
+            <h2>Basics</h2>
+            <p>
+                The first step to understanding peripheral management is to understand the most in portent tool thereof, the peripheral cable item!
+                <br>
+                When holding the cable tool, you will notice some blocks will now be marked with a purple plus icon (effect pictured below)
+            </p>
+            <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                <img src="peripherals_assets/show_cables.png" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="diagram showing a Dynamic Light peripheral overlapped with a purple plus sign after a Peripheral Cable item is held">
+                <figcaption style="margin-left: 3px;">Diagram of visual effect</figcaption>
+            </figure>
+            <p>
+                This new visual overlay is how you will see peripheral infrastructure, which by default is invisible.
+                Of course the purpose of the peripheral cable tool is not to view infrastructure but to create it, clicking on any block
+                with the tool will place a new overlay into it, this overlay represents a cable. please
+                forgive the difference in brightness on this next diagram, the two icons are rendered differently and the
+                shader finds the situation unideal.
+            </p>
+            <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                <img src="peripherals_assets/place_cable.png" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="diagram showing a peripheral cable places between two devices">
+                <figcaption style="margin-left: 3px;">Diagram of cable being placed</figcaption>
+            </figure>
+            <h2>Connecting devices</h2>
+            <p>
+                Now that you can see and place cables, we can connect computers and peripherals together.
+                Intuitively you can simply place cables between devices to connected them as shown.
+            </p>
+            <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                <img src="peripherals_assets/not_connecting.png" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="diagram showing 3 devices in a line with one cable between them, with a device on one end not able to access the device opposite">
+                <figcaption style="margin-left: 3px;">Diagram of cables connecting devices</figcaption>
+            </figure>
+            <p>
+                Note how the computer leftmost can access the light in the center, but not the one on the right, this is because
+                the connection can not travel <i>through</i> devices, only cables, so the right lamp is technically unreachable.
+            </p>
+            <p>
+                This is to allow connections to intersect without necessarily connecting, but in you want to make that connection
+                you can do so by placing the cable over the device itself, which will preserve the original connection while allowing
+                that connection to go past the device to cables past it. (in some cases you might need to shift click to place the cable)
+            </p>
+            <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                <img src="peripherals_assets/connecting.png" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="diagram showing 3 devices in a line with cables reaching end to end, all devices connected to each-other">
+                <figcaption style="margin-left: 3px;">Diagram of full line of connections</figcaption>
+            </figure>
+            <p>
+                Notice how with the extra cable between them now the computer can reach all the lights
+            </p>
+            <h2>Advanced Configuration</h2>
+            <p>You now know how to wire peripherals, but you lack the advanced knowledge that can be useful in many situations</p>
+            <p>
+                It's time to introduce the Peripheral Config Tool, this tool like the cable tool will allow you to see peripheral
+                infrastructure, but it provides functionality the cable tool does not, as shown when you click on a peripheral
+                with it!
+            </p>
+            <figure style="width: 40%; background-color: rgb(240, 240, 240); border-radius: 5px; min-width: 280px;">
+                <img src="peripherals_assets/tool.png" style="width: 100%; border-top-left-radius: 5px; border-top-right-radius: 5px;" alt="Picture of Peripheral Config Tool UI, with fields for peripheral type, uuid, custom tag, and manual function input">
+                <figcaption style="margin-left: 3px;">Picture of Peripheral Config Tool UI</figcaption>
+            </figure>
+            <p>
+                To break down the menu of the tool, I should explain some property of peripherals,
+                all peripherals have a type, a piece of text identifying what type of device the peripheral is and what mod
+                added it. peripherals also posses a UUID, a long string of numbers and letters that identify the specific peripheral and
+                set it apart from any other device then itself, computers also pusses such a UUID themselves, and finally peripherals
+                have a "tag".
+            </p>
+            <p>
+                Hovering over the type or uuid fields on the menu will display the relevant property, however the tag is set with the
+                topmost text input, tags are text that peripherals can be given to more intuitively identify them then using their UUID.
+                Tags, UUIDs, and types are all programmatically accessible to computers, and it's wise to utilize them when making programs for the mod!
+            </p>
+            <p>
+                The final element of the menu in the "Manual Function input" and the submit button next to it, When setting up peripherals
+                you may want to adjust it without purposing an entire computer and script in order to do so, the manual function input
+                can execute a function the peripheral has, as "setLuminance(7)" or "setLuminance 7", although the manual input can only process String, Number, and Boolean parameters.
+            </p>
+            <p>
+                And with that final feature explained, you now know everything to know about peripherals (if you read the API documentation aswell), now set forth and make something!
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

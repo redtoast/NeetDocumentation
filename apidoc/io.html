@@ -51,10 +51,42 @@
                 </tr>
                 <tr>
                     <td class="apilookupleft">
-                        getPeripheralType(id)
+                        getType(id)
                     </td>
                     <td class="apilookupright">
                         Gets a text description of a peripheral
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getTag(id)
+                    </td>
+                    <td class="apilookupright">
+                        Gets the peripherals tag
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setTag(id, tag = nil)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the peripherals tag
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        queryTag(tag)
+                    </td>
+                    <td class="apilookupright">
+                        Gets the ids of all peripherals with the tag
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        queryType(type)
+                    </td>
+                    <td class="apilookupright">
+                        Gets the ids of all peripherals of the type
                     </td>
                 </tr>
                 <tr>
@@ -91,10 +123,50 @@
         </div>
         <div>
             <h3>
-                getPeripheralType(id)
+                getType(id)
             </h3>
             <p>
                 Gets a text description of a peripheral based on its id
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                getTag(id)
+            </h3>
+            <p>
+                Gets a peripherals tag based on its id
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                setTag(id)
+            </h3>
+            <p>
+                Sets the tag of the peripheral with the id
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                queryTag(id)
+            </h3>
+            <p>
+                Gets the ids of all peripherals with the tag
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: String</u>
+        </div>
+        <div>
+            <h3>
+                queryType(id)
+            </h3>
+            <p>
+                Gets the ids of all peripherals of the type
             </p>
             <u>Parameters: ID[String]</u>
             <u style="margin-left: 15px;">Returns: String</u>

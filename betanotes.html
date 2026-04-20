@@ -34,23 +34,23 @@
                 Ok so this page is going to be a bit more informal than the others but with luck I will be able to replace it with
                 something less terrible. so, you want to make software for this mod, here's the steps to get something running!
             </p>
-            <ul>
+            <ol>
                 <li>
-                    1: Open your world save and look for the neetcomputers directory
+                    Open your world save and look for the neetcomputers directory
                 </li>
                 <li>
-                    2: inside will many folders identified with an address number, increasing in order of creation
+                    inside will many folders identified with an address number, increasing in order of creation
                 </li>
                 <li>
-                    3: use the /data get command to find the address of a computer in its NBT data, or know in what order it was placed
+                    use the /data get command to find the address of a computer in its NBT data, or know in what order it was placed
                 </li>
                 <li>
-                    4: inside this folder is all the computers partitions, placing a file in these partitions exposes it to the computer
+                    inside this folder is all the computers partitions, placing a file in these partitions exposes it to the computer
                 </li>
                 <li>
-                    5: by default although changeable theoretically, creating a bios.lua file in the bios partition will overwrite the default bios, as the new entrypoint for code execution
+                    by default although changeable theoretically, creating a bios.lua file in the bios partition will overwrite the default bios, as the new entrypoint for code execution
                 </li>
-            </ul>
+            </ol>
             <p>
                 ok having an entrypoint is cool but there's more to know! also in your world save is a config directory, in inside it is the file NEETserver.properties
                 which contains a setting you should be aware of, print-to-console, the print(...) function still exists in neet computers, and by enabling this setting it will echo into the games console, this is useful for testing.

@@ -4,7 +4,7 @@
     <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
     <link rel="stylesheet" type="text/css" href="./../homepage.css" />
     <link rel="icon" href="https://red-toast.net/assets/logo.png">
-    <title>Simple Display documentation - NEET</title>
+    <title>Color Display documentation - NEET</title>
 </head>
 <body style="margin-top: 0; margin-bottom: 0;">
 <div id="body">
@@ -26,17 +26,17 @@
     </div>
     <div id="content">
         <div>
-            <h1>Simple Display documentation</h1>
+            <h1>Color Display documentation</h1>
         </div>
         <div>
             <h2>Introductions</h2>
             <p>
-                The Simple Display is a large fun multi block graphical display!
+                The Color Display is a large fun multi block color graphical display, like the screen of a computer!
             </p>
-            <img src="../simple_display.png" style="width:50%;">
+            <img src="../color_display.png" style="width:50%;">
             <p>
                 When multiple units are placed together they will merge to form a larger display, from the perspective of a computer
-                they are all one peripheral, will appear as one peripheral, and will work the same as a projector display but with a larger screen size.
+                they are all one peripheral, will appear as one peripheral, and will work the same as a normal screen object but with a larger screen size.
             </p>
             <p>
                 You can also shift click the display with an empty hand to clear it, unless disabled in mod settings.<br>
@@ -45,7 +45,37 @@
             <p>
                 The Color Display is categorized as "neetcomputers:color_display" in the IO API
             </p>
-            The API is the exact same as the <a href="/apidoc/projector.html">Projector API</a>!
+            The API is the exact same as the baseline version of the <a href="/apidoc/screen.html">Screen API</a>, plus a draw function!
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        draw()
+                    </td>
+                    <td class="apilookupright">
+                        Updates the blocks display
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                draw()
+            </h3>
+            <p>
+                Updates the blocks display, works the same as it does in the screen api, update capped to every other tick
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
         </div>
     </div>
 </div>

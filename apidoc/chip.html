@@ -87,7 +87,23 @@
                         getTime()
                     </td>
                     <td class="apilookupright">
-                        Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>
+                        Gets the total amount of time the computer has been executing code, in seconds
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getUnixTime()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>, in seconds
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getLunarTime()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the current game lunar time
                     </td>
                 </tr>
                 <tr>
@@ -149,8 +165,34 @@
                 getTime()
             </h3>
             <p>
-                Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>
+                Gets the total amount of time the computer has been executing code, in seconds
             </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Decimal</u>
+        </div>
+        <div>
+            <h3>
+                getUnixTime()
+            </h3>
+            <p>
+                Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>, in seconds
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Decimal</u>
+        </div>
+        <div>
+            <h3>
+                getLunarTime()
+            </h3>
+            <p>
+                Gets the current game lunar time, some benchmarks provided
+            </p>
+            <ul>
+                <li>Day: 1000</li>
+                <li>Noon: 6000</li>
+                <li>Night: 13000</li>
+                <li>Midnight: 18000</li>
+            </ul>
             <u>Parameters: None</u>
             <u style="margin-left: 15px;">Returns: Integer</u>
         </div>

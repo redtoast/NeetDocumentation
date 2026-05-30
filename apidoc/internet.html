@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Internet documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Internet documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The Internet API is a completely asynchronous HTTP and web socket client that makes heavy use of events.
+            </p>
+            <p>The internet api exists in the global space as "internet" or "_G.internet"</p>
+        </div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <p>
+                Includes the functions in the base api for sending requests, and websocket send and close functions
+                provided by the 'WebsocketOpened' event.
+            </p>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        GET(url, headers = {})
+                    </td>
+                    <td class="apilookupright">
+                        Sends a http GET request, and mints an ID to track the response
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        POST(url, headers = {}, body = "")
+                    </td>
+                    <td class="apilookupright">
+                        Sends a http POST request, and mints an ID to track the response
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        CreateWebsocket(uri, headers = {})
+                    </td>
+                    <td class="apilookupright">
+                        Clears all event queues
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        hasAccess()
+                    </td>
+                    <td class="apilookupright">
+                        Checks if the internet API is enabled in the mod config
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        isReady()
+                    </td>
+                    <td class="apilookupright">
+                        Checks if the api is ready to receive outgoing messages
+                    </td>
+                </tr>
+            </table>
+            <h3>'WebsocketOpened' functions</h3>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        send(body, binaryMode)
+                    </td>
+                    <td class="apilookupright">
+                        Attempts to send a message to the opened websocket
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        close()
+                    </td>
+                    <td class="apilookupright">
+                        Closes the websocket with error code 1000
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                GET(url, headers = {})
+            </h3>
+            <p>
+                Adds the given HTTP GET request to the outgoing queue, and returns the id of the inbound response
+            </p>
+            <u>Parameters: url[String, url format], headers[Table of string pairs] default value {}</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                POST(url, headers = {}, body = "")
+            </h3>
+            <p>
+                Adds the given HTTP POST request to the outgoing queue, and returns the id of the inbound response
+            </p>
+            <u>Parameters: url[String, url format], headers[Table of string pairs] default value {}, body[String or Bytes]</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                CreateWebsocket(uri, headers = {})
+            </h3>
+            <p>
+                Attempts to start the life cycle of a web socket, and mints an id for all further correspondence (note only 5 sockets can be active at once by default)<br>
+                Will register an "WebsocketOpened" once complete, there may be a delay between the function finishing execution and the event being registered<br>
+                While the HTTP request functions provide almost all errors through 'HttpResponse' events, CreateWebsocket is more likely to throw errors directly
+            </p>
+            <u>Parameters: url[String], headers[Table of string pairs] default value {}</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                hasAccess()
+            </h3>
+            <p>
+                Returns if internet connectivity is enabled in the mod configuration
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Boolean</u>
+        </div>
+        <div>
+            <h3>
+                isReady()
+            </h3>
+            <p>
+                Returns if the computer is ready to receive outgoing requests, including websocket messages
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Boolean</u>
+        </div>
+        <h2>'WebsocketOpened' functions</h2>
+        <div>
+            <h3>
+                send(body, binaryMode)
+            </h3>
+            <p>
+                Sends the attached message to the opened websocket, with a toggle for binary or plain text modes<br>
+                Will send 'WebsocketSendSuccess' or 'WebsocketSendFailure' event depending on if the operation was successful
+            </p>
+            <u>Parameters: body[String or Bytes], binaryMode[Boolean]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                close()
+            </h3>
+            <p>
+                Returns if the computer is ready to receive outgoing requests, including websocket messages
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Event table
+            </h2>
+            <p>A large part of the internet API, especially Websockets, is dependent on events in the Network category</p>
+            <p style="margin-bottom:2px;">HttpResponse [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>HttpResponse[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>id[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>status code[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>status message[String]</span>
+                    </td>
+                    <td class="eventuppercells" style="width: 12px;">
+                        <span><b>></b></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="eventuppercells">
+                        <span>Headers[Table of Strings]</span>
+                    </td>
+                    <td colspan="3" class="eventuppercells">
+                        <span>Body[String/Bytes or nil]</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="5"  class="eventlowercells">
+                        <span>
+                            Documents the HTTP response to a request, exactly one response event is guaranteed to be generated for any http request that don't complete exceptionally (throw an error).
+                            <br>The id is the same number as it returned by the request generating function, and is randomly generated.
+                            <br>The status code and message will generally follow HTTP status code protocol, however some linix TCP error codes have been used in some client exceptions (Documented below)
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">WebsocketOpened [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>WebsocketOpened[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>id[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>Send Function[Function]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>Close Function[Function]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>
+                            The event that signals a Websocket has been successfully created, shares the random ID as the function that requested the Websocket and provides methods for interacting with the open Websocket (Documented above)<br>
+                            May also cover networking errors encountered while trying to connect to the webserver.
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">WebsocketClosed [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>WebsocketClosed[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>id[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>status code[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>reason[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>
+                            The event that signals a Websocket has been closed, shares the random ID as the function that requested the Websocket and contained the associated error code and reason
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">WebsocketMessage [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>WebsocketMessage[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>id[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>Body[String/Bytes]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>binary[Boolean]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"  class="eventlowercells">
+                        <span>
+                            The event that signals a Websocket has received a message from the server, shares the random ID as the function that requested the Websocket and describes if the message was sent as binary or plain UTF-8
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">WebsocketSendSuccess [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>WebsocketSendSuccess[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>id[Int]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"  class="eventlowercells">
+                        <span>
+                            The event that signals a Websocket message has been successfully sent, shares the random ID as the function that requested the Websocket
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">WebsocketSendFailure [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>WebsocketSendFailure[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>id[Int]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>reason[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"  class="eventlowercells">
+                        <span>
+                            The event that signals a Websocket message has failed to be sent, shares the random ID as the function that requested the Websocket
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <h2>
+            Status Codes
+        </h2>
+        <p>Examples of common error codes, does not contain ever possible error code except for the TCP ones, those are inclusive to what API fires</p>
+        <table class="apilookup" style="text-align: center;">
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240); width: 40px;">
+                    <b>Code</b>
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240); width: 200px;">
+                    <b>Name</b>
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px; background-color: rgb(240, 240, 240);">
+                    <b>Explanation</b>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    #
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ---
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    <u>PROPRIETARY TCP LINIX CODES, ONLY FIRED BY API FOR HTTP REQUESTS</u>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    105
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ENOBUFSNO
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Computer not ready to receive requests
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    110
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ETIMEDOUT
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Client couldn't connect in timeout period
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    111
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ECONNREFUSED
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Internet access not enabled in mod config
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    #
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ---
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    <u>NORMAL COMMON HTTP CODES</u>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    200
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    OK
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    No issue
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    400
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    TIMEOUT
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Client or server timed out
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    400
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    BAD REQUEST
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Request malformed in some way
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    404
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    NOT FOUND
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Target resource not found
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    403
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    FORBIDDEN
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    You don't have access to the resource your requesting
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    #
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ---
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    <u>WEBSOCKET ERROR CODES</u>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    1000
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    NORMAL CLOSURE
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Socket connection has reached the end of its usefulness
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    1001
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    GOING AWAY
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    The client/server is going away
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    1002
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    PROTOCOL ERROR
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Message doesn't follow expected guidelines/format
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    1003
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    UNSUPPORTED DATA
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Data received the server won't except, usually has to do with binary modes
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    1006
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    ABNORMAL CLOSURE
+                </td>
+                <td style="border: 1px solid rgb(204, 204, 204); padding: 4px 6px;">
+                    Client lost connection suddenly
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

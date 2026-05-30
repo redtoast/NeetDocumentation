@@ -47,63 +47,68 @@
                 Event table
             </h2>
             <p>This event table is identical to the <a href="/events/keybinds.html">keybind</a> events, but with a peripheral header on the events.</p>
-            <p style="margin-bottom:2px;">keyPressed [User]</p>
+            <p style="margin-bottom:2px;">keyPressed [Peripheral]</p>
             <table class="apilookup">
                 <tr>
-                    <td class="eventuppercells">
+                    <td colspan="2" class="eventuppercells">
                         <span>neetcomputers:keyboard[String]</span>
                     </td>
-                    <td class="eventuppercells">
+                    <td colspan="2" class="eventuppercells">
                         <span>UUID[String]</span>
                     </td>
+                    <td class="eventuppercells" style="width: 12px;">
+                        <span><b>></b></span>
+                    </td>
+                </tr>
+                <tr>
                     <td class="eventuppercells">
                         <span>keyPressed[String]</span>
                     </td>
-
-                </tr>
-                <tr>
                     <td class="eventuppercells">
                         <span>code[Int]</span>
                     </td>
                     <td class="eventuppercells">
                         <span>letter[String]</span>
                     </td>
-                    <td class="eventuppercells">
+                    <td colspan="2" class="eventuppercells">
                         <span>modifiers[Int]</span>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3"  class="eventlowercells">
+                    <td colspan="5"  class="eventlowercells">
                         <span>Triggered when a key is pressed, returns an ASCII keycode, a letter representing the key pressed if applicable or "" if not, and modifier key bitmap.</span>
                     </td>
                 </tr>
             </table>
-            <p style="margin-bottom:2px;">keyReleased [User]</p>
+            <p style="margin-bottom:2px;">keyReleased [Peripheral]</p>
             <table class="apilookup">
                 <tr>
-                    <td class="eventuppercells">
+                    <td colspan="2" class="eventuppercells">
                         <span>neetcomputers:keyboard[String]</span>
                     </td>
-                    <td class="eventuppercells">
+                    <td colspan="2" class="eventuppercells">
                         <span>UUID[String]</span>
                     </td>
-                    <td class="eventuppercells">
-                        <span>keyReleased[String]</span>
+                    <td class="eventuppercells" style="width: 12px;">
+                        <span><b>></b></span>
                     </td>
                 </tr>
                 <tr>
+                    <td class="eventuppercells">
+                        <span>keyReleased[String]</span>
+                    </td>
                     <td class="eventuppercells">
                         <span>code[Int]</span>
                     </td>
                     <td class="eventuppercells">
                         <span>letter[String]</span>
                     </td>
-                    <td class="eventuppercells">
+                    <td colspan="2" class="eventuppercells">
                         <span>modifiers[Int]</span>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3"  class="eventlowercells">
+                    <td colspan="5"  class="eventlowercells">
                         <span>Triggered when a key is released, returns an ASCII keycode, a letter representing the key pressed if applicable or "" if not, and modifier key bitmap.</span>
                     </td>
                 </tr>

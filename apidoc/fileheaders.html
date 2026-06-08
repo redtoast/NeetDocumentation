@@ -35,7 +35,7 @@
                 the risk of direct file interaction. Changes made to a header don't instantly change the file being represented, and reading will only capture the contents of the file when the header was "opened".
             </p>
             <p>
-                In NEET file headers are the only builtin way to interact with files themselves, however the rest of the file system is accesses via its <a href="filesystem.html">perspective API</a>, and the file system API is also <a href="filesystem.html#open">where headers are created</a>
+                In NEET file headers are the only builtin way to interact with files themselves, however the rest of the file system is accesses via its <a href="files.html">perspective API</a>, and the files API is also <a href="files.html#open">where headers are created</a>
             </p>
             <p>
                 For reference its good practice to "close" the header because as it's only a puppet of the real file, it's using up as much ram and some as the file does file pace! "closing" the header will make it inoperable but its good practice for mitigating memory leaks and playing nice with the game server.

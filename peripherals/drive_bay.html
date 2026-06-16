@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Drive Bay documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Drive Bay documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The Drive Bay has one item slot in which a disk item can be inserted, and the contained disk automatically mounted to attached computers
+            </p>
+            <p>
+                Please see <a href="../apidoc/files.html">files</a> api for using the attached drive
+            </p>
+            <p>
+                The drive bay is categorized as "neetcomputers:drive_bay" in the IO API
+            </p>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Lookup table
+            </h2>
+            <table class="apilookup">
+                <tr>
+                    <td class="apilookupleft">
+                        getItem()
+                    </td>
+                    <td class="apilookupright">
+                        Gets the id of the item inserted
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        hasDisk()
+                    </td>
+                    <td class="apilookupright">
+                        Checks if a valid disk item is inserted
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="spacer"></div>
+        <h2>
+            Functions in detail
+        </h2>
+        <div>
+            <h3>
+                getItem()
+            </h3>
+            <p>
+                Gets the id of the item inserted, or null if the bay is empty
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: String or nil</u>
+        </div>
+        <div>
+            <h3>
+                hasDisk()
+            </h3>
+            <p>
+                Checks if a valid disk item is inserted and by proxy is attached to the computer
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: Boolean</u>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Event table
+            </h2>
+            <p style="margin-bottom:2px;">keyPressed [Peripheral]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>neetcomputers:drive_bay[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>UUID[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>DiskAttached[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"  class="eventlowercells">
+                        <span>Triggered when a disk is inserted into an empty drive bay or a disk having bay is attached to the computer</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">keyReleased [Peripheral]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>neetcomputers:drive_bay[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>UUID[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>DiskDetached[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"  class="eventlowercells">
+                        <span>Triggered when a disk is removed from the drive bay or the drive bay is disconnected</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

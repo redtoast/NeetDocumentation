@@ -67,6 +67,14 @@
                 </tr>
                 <tr>
                     <td class="apilookupleft">
+                        isCompatibility(id)
+                    </td>
+                    <td class="apilookupright">
+                        Checks if the peripheral is from CC:T
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
                         setTag(id, tag = nil)
                     </td>
                     <td class="apilookupright">
@@ -143,6 +151,16 @@
         </div>
         <div>
             <h3>
+                isCompatibility(id)
+            </h3>
+            <p>
+                Tests if the peripheral is adapted from CC:Tweaked
+            </p>
+            <u>Parameters: ID[String]</u>
+            <u style="margin-left: 15px;">Returns: Boolean</u>
+        </div>
+        <div>
+            <h3>
                 setTag(id)
             </h3>
             <p>
@@ -190,6 +208,76 @@
             </p>
             <u>Parameters: ID[String], Function[String], Arguments[Any]...</u>
             <u style="margin-left: 15px;">Returns: Any</u>
+        </div>
+        <div>
+            <h3>
+                broadcastLocal(arguments...)
+            </h3>
+            <p>
+                Attempts to call a specific function from a peripheral, passing the arguments following the function parameter
+            </p>
+            <u>Parameters: Arguments[Any primitive]...</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Event table
+            </h2>
+            <p style="margin-bottom:2px;">peripheralAttached [System]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>peripheralAttached[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>Type[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>UUID[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"  class="eventlowercells">
+                        <span>Triggered when a peripheral is attached to the computer</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">peripheralDetached [System]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>peripheralDetached[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>Type[String]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>UUID[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"  class="eventlowercells">
+                        <span>Triggered when a peripheral is disconnected to the computer</span>
+                    </td>
+                </tr>
+            </table>
+            <p style="margin-bottom:2px;">networkMessage [Network]</p>
+            <table class="apilookup">
+                <tr>
+                    <td class="eventuppercells">
+                        <span>networkMessage[Network]</span>
+                    </td>
+                    <td class="eventuppercells">
+                        <span>Arguments... [Any primitive]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"  class="eventlowercells">
+                        <span>Fired when a message is received from a network cable, the amount of arguments is variable</span>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

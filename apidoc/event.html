@@ -32,10 +32,10 @@
             <h2>Introductions</h2>
             <p>
                 The 'event' API grants you full programmatic access to the running computer's event queues, as described in the <a href="../sysdoc/events.html">System documentation page</a> for events, the api to
-                multiple different queues for events separated by category, and a special "all" queue that contains all events regardless of category.
+                multiple different queues for events separated by category.
             </p>
             <p>The event api exists in the global space as "event" or "_G.event"</p>
-            <p>Before we start, its recommended to clear event queues at the start of an event using process, to prevent old events from causing problems</p>
+            <p>Before we start, it's recommended to clear event queues at the start of an event using process, to prevent old events from causing problems</p>
             <h2>Categories?</h2>
             <p>each computer contains multiple categories, and every event is registered to one of them based off its relevance to the category. Below is a list of all categories</p>
             <ul>
@@ -45,18 +45,10 @@
                 <li>Network</li>
                 <li>Peripheral</li>
                 <li>Compatibility</li>
-                <li>All</li>
             </ul>
             <p>
                 when a queue is retrieved by the API, all events that are returned are also removed from their home que, meaning that a event cant be read from the computer twice. its also relevant that each event is
                 capped at 75 events capacity, and if needed old events will be forgotten to make room
-            </p>
-            <h2>The "All" category</h2>
-            <p>
-                The all category is unique to its neighboring categories, as all events regardless of category are also occupying All,
-                it's not possible to queue events directly to all (doing so will instead categorize them as Unlabeled), however when a
-                event is removed from the all que during reading it will also be removed from its assigned parent queue, and likewise
-                events removed from traditional queues will have their clone removed from the all queue automatically, to uphold the rule that no event can be read twice.
             </p>
         </div>
         <div class="spacer"></div>
@@ -79,6 +71,14 @@
                     </td>
                     <td class="apilookupright">
                         Pulls the first eligible item from the queue
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        clear(Category)
+                    </td>
+                    <td class="apilookupright">
+                        Clears the event queue
                     </td>
                 </tr>
                 <tr>
@@ -115,6 +115,16 @@
             </p>
             <u>Parameters: Category[String, non-case-specific], Filter[String] default value nil</u>
             <u style="margin-left: 15px;">Returns: [String, args...] or nil</u>
+        </div>
+        <div>
+            <h3>
+                clear(Category)
+            </h3>
+            <p>
+                Clears the given event queue
+            </p>
+            <u>Parameters: Category[String, non-case-specific]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
         </div>
         <div>
             <h3>

@@ -173,7 +173,7 @@
                 </tr>
                 <tr>
                     <td class="apilookupleft">
-                        drawPixels(x, y, RGBA-buffer, width, height)
+                        drawPixels(x, y, buffer, width = nil, height = nil)
                     </td>
                     <td class="apilookupright">
                         Draws a raw buffer of color data to the screen
@@ -314,6 +314,57 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <div class="spacer"></div>
+        <div>
+            <h2>
+                Functions in detail
+            </h2>
+            <div>
+                <h3>
+                    drawPixels(x, y, buffer, width, height)
+                </h3>
+                <p>
+                    Draws a raw RGBA pixel buffer to the screen, with the top-left pixel placed at (x, y)
+                </p>
+                <p>
+                    The buffer is a flat, row-major sequence of 4 values per pixel in Red, Green, Blue, Alpha order, so its length must equal width * height * 4
+                </p>
+                <p>
+                    Width and height are optional. If width is given but height is not, height is inferred from the buffer's length. If both are omitted, the buffer is assumed to be square and both dimensions are inferred from its length
+                </p>
+                <u>Parameters: X[Integer], Y[Integer], Buffer[List of Integers 0-255, or Bytes], Width[Integer] default value nil, Height[Integer] default value nil</u>
+                <u style="margin-left: 15px;">Returns: None</u>
+                <p>
+                    <u>Passing a Bytes value instead of a List/table is much faster for large buffers, since it's read directly instead of being unpacked element-by-element</u>
+                </p>
+                <p>
+                    The easiest way to build a Bytes buffer is with a plain Lua string, since strings are automatically treated as Bytes:
+                </p>
+                <pre>
+-- Slow: a table (List), one Lua value + boundary check per element
+local buffer = {}
+for i = 1, width * height * 4 do
+    buffer[i] = someColorValue
+end
+screen.drawPixels(0, 0, buffer, width, height)
+
+-- Fast: a Bytes buffer, built as a string
+local chunks = {}
+for py = 1, height do
+    for px = 1, width do
+        -- string.char packs one pixel's R,G,B,A into a 4-byte chunk
+        chunks[#chunks + 1] = string.char(r, g, b, a)
+    end
+end
+local buffer = table.concat(chunks)   -- joins everything in one pass
+
+screen.drawPixels(0, 0, buffer, width, height)
+                </pre>
+                <p>
+                    Don't build the buffer with repeated ".." concatenation in a loop (e.g. buffer = buffer .. string.char(...)), that rebuilds the whole string every iteration. Collecting chunks in a table and calling table.concat once keeps this O(n)
+                </p>
+            </div>
         </div>
     </div>
 </div>

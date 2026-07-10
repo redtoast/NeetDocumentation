@@ -113,6 +113,14 @@
                         calls a specific function from a peripheral
                     </td>
                 </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        broadcastLocal(arguments...)
+                    </td>
+                    <td class="apilookupright">
+                        Broadcasts the arguments to all other computers on the network
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="spacer"></div>
@@ -214,7 +222,7 @@
                 broadcastLocal(arguments...)
             </h3>
             <p>
-                Attempts to call a specific function from a peripheral, passing the arguments following the function parameter
+                Broadcasts the arguments to all other computers on the connected wired network, triggering the networkMessage event on all receiving computers
             </p>
             <u>Parameters: Arguments[Any primitive]...</u>
             <u style="margin-left: 15px;">Returns: None</u>

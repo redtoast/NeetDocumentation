@@ -58,6 +58,14 @@
             <table class="apilookup">
                 <tr>
                     <td class="apilookupleft">
+                        queueEvent(Category, event, args...)
+                    </td>
+                    <td class="apilookupright">
+                        Queues an event with the given specifications
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
                         getQueue(Category, filter = nil)
                     </td>
                     <td class="apilookupright">
@@ -94,6 +102,16 @@
         <h2>
             Functions in detail
         </h2>
+        <div>
+            <h3>
+                queueEvent(Category, event, args...)
+            </h3>
+            <p>
+                Queues an event with the given specifications
+            </p>
+            <u>Parameters: Category[String, non-case-specific], Event[String], Args[Any...]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
         <div>
             <h3>
                 getQueue(Category, filter = nil)

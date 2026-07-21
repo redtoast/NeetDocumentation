@@ -9,7 +9,7 @@
 <body style="margin-top: 0; margin-bottom: 0;">
 <div id="body">
     <div id="header">
-        <h3>NEET docs</h3>
+        <h3>NEET Docs</h3>
         <div id="menu_buttons">
             <table>
                 <td>
@@ -27,16 +27,18 @@
     <div id="content">
         <div>
             <h1>Event documentation</h1>
+            <hr>
+
         </div>
         <div>
             <h2>Introductions</h2>
             <p>
-                The 'event' API grants you full programmatic access to the running computer's event queues.
+                The <b>event</b> API grants you full programmatic access to the running computer's event queues.
             </p>
-            <p>The event api exists in the global space as "event" or "_G.event"</p>
-            <p>Before we start, it's recommended to clear event queues at the start of an event using process, to prevent old events from causing problems</p>
+            <p>The <b>event</b> API exists in the global space as "event" or "_G.event"</p>
+            <p>Before we start, it's recommended to clear event queues at the start of an event using process. This is to prevent old events from causing problems</p>
             <h2>Categories?</h2>
-            <p>each computer contains multiple categories, and every event is registered to one of them based off its relevance to the category. Below is a list of all categories</p>
+            <p>Each computer contains multiple categories, and every event is registered to one of them based off its relevance to the category. Below is a list of all categories</p>
             <ul>
                 <li>Unlabeled</li>
                 <li>User</li>
@@ -46,7 +48,7 @@
                 <li>Compatibility</li>
             </ul>
             <p>
-                when a queue is retrieved by the API, all events that are returned are also removed from their home que, meaning that a event cant be read from the computer twice. its also relevant that each event is
+                When a queue is retrieved by the API, all events that are returned are also removed from their home queue, meaning that a event can't be read from the computer twice. It's also relevant that each event is
                 capped at 75 events capacity, and if needed old events will be forgotten to make room
             </p>
         </div>

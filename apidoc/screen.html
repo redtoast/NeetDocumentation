@@ -9,7 +9,7 @@
 <body style="margin-top: 0; margin-bottom: 0;">
 <div id="body">
     <div id="header">
-        <h3>NEET docs</h3>
+        <h3>NEET Docs</h3>
         <div id="menu_buttons">
             <table>
                 <td>
@@ -27,38 +27,38 @@
     <div id="content">
         <div>
             <h1>Screen documentation</h1>
+            <hr>
         </div>
         <div>
-            <h2>Introductions</h2>
+            <h2>Introduction</h2>
             <p>
-                The screen API is a very large, maybe overcomplicated, mostly stable, powerful graphical tool that allows for advanced computer graphics.
-                It may look very intimidating, but I ask that you take things slowly with this api, as to not scare it away, its more scared of you than you are of it!
+                The <b>Screen</b> API is a very large and mostly stable, powerful graphical tool that allows for advanced computer graphics.
+                It may look very intimidating, but I ask that you take things slowly with this API.
             </p>
-            <p>The screen api exists in the global space as "screen" or "_G.screen"</p>
-            <h2>How does it work</h2>
+            <p>The <b>Screen</b> API exists in the global space as "screen" or "_G.screen"</p>
+            <h2>How does it work?</h2>
             <p>
-                As it is in totality a complicated system, we should break the graphics API into smaller pieces to ease our understanding.
+                As it is a complicated system, we should break the graphics API into smaller pieces to ease our understanding.
                 First the system is <a href="https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics">double buffered</a>,
-                meaning that instead of draw functions writing to the screen being shown, graphics are first drawn to a invisible screen that can
+                meaning that instead of draw functions directly writing to the screen, graphics are first drawn to a invisible screen that can
                 be copied onto the visible screen, preventing the user from seeing half drawn graphics and visual artifacts, just remember to call draw() to render a new frame!
             </p>
             <p>
-                The drawing functions themselves will by default draw a color set in memory, here called the default color, unless given a specific
-                color to draw. Also included is a default Alpha value that cant be set per function call like normal color, Alpha transparency is a 0-255 value that tells the
+                By default, the drawing functions draw a color set in memory, here called the default color. A color can also be specified. Also included is a default Alpha value that can't be set per function call like normal color, Alpha transparency is a 0-255 value that tells the
                 api how transparent newly drawn graphics are, with 0 being invisible and 255 being opaque.
             </p>
             <p>
-                Another useful tool available is layers, layers share most functions with the screen, but both have center exclusive functions unique to themselves.
+                Another useful tool available is layers. Layers share most functions with the screen, but they have center exclusive functions unique to themselves.
                 Layers are like small mini-screens that are not double buffered or inherently visible, however their graphics can be drawn onto other layers or the main screen.
                 Layers can be copied from other graphical objects or created blank!
             </p>
             <p>
-                Also, you can rotate all graphic operations using the provided functions to do so, which is pretty cool.
+                Also, you can rotate all graphic operations using the provided functions to do so.
             </p>
-            <h2>Why is the API like this</h2>
+            <h2>Why is the API like this?</h2>
             <p>
                 In short, I was bored. the majority of the API was written long before the rest of NEET computers while I was bored out of my mind in class,
-                the result is a graphics demo api being ported to minecraft because I think it's really cool, and it's my mod I make the rules
+                the result is a graphics demo api being ported to Minecraft because I think it's really cool, and it's my mod I make the rules
             </p>
             <p>
                 Although the entire API doesn't meet the same standards of polish as the other APIs, its quite reliable and functional,

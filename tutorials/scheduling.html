@@ -1,0 +1,60 @@
+<head>
+    <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
+    <link rel="stylesheet" type="text/css" href="./../homepage.css" />
+    <link rel="icon" href="https://red-toast.net/assets/logo.png">
+    <title>Scheduling documentation - NEET</title>
+</head>
+<body style="margin-top: 0; margin-bottom: 0;">
+<div id="body">
+    <div id="header">
+        <h3>NEET docs</h3>
+        <div id="menu_buttons">
+            <table>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation"><h3 class="menu_button">Docs</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net/NeetDocumentation/home"><h3 class="menu_button">Home</h3></a>
+                </td>
+                <td>
+                    <a href="https://red-toast.net"><h3 class="menu_button">Main site</h3></a>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Scheduling documentation</h1>
+        </div>
+        <div>
+            <h2>Introductions</h2>
+            <p>
+                The NEET computers mod has a complex unintuitive system for how it schedules the parsing of instructions, this page is the only
+                documentation you will ever need to gain a complex understanding of how NEET manages its computers!
+            </p>
+            <h3>Tickets</h3>
+            <p>
+                The most material system for scheduling is tickets, when a computer is ticked, its allocated X tickets, of Y size.<br>
+                From there the computer runs a process on the least burdened computer processing thread, this process starts running Lua code, waiting
+                for Y instructions before expending 1 ticket, once there are no more tickets or there is no more valid lua code to run, the process ends
+                allowing the thread running it to progress to the next computer waiting to be scheduled.
+            </p>
+            <h3>Process Allocation</h3>
+            <p>
+                As described, when a computer received a game tick, for example a placed computer being ticked by its block entity,
+                it will check to see if its in good state to run code (has a loaded filesystem, is on, i.e.), it will find the available processing thread
+                with the smallest queue of processes and append its own ticket spending process to that queue. If the computer already has a process waiting
+                on any processing thread when it ticks it will not queue another, in effect if the threads cant keep up, computers will skip ticks.
+            </p>
+            <h3>Native Libraries</h3>
+            <p>
+                This section of the scheduling documentation is Lua (more specifically YS-Lua) specific, other languages might implement it differently.
+                Within the YS-Lua module, the ticket consuming process, as well as the entire Lua runtime is run in a mixture of C and C++, this code is compiled
+                and a 'binary' for this code exists for each combination of operating system and system architecture the mod supports. The reason for this is the extreme
+                speed gains from keeping the Lua runtime outside the slower java language.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

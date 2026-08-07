@@ -76,6 +76,14 @@
                 </tr>
                 <tr>
                     <td class="apilookupleft">
+                        reboot()
+                    </td>
+                    <td class="apilookupright">
+                        Forcefully restarts the computer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
                         version()
                     </td>
                     <td class="apilookupright">
@@ -87,7 +95,7 @@
                         getTime()
                     </td>
                     <td class="apilookupright">
-                        Gets the total amount of time the computer has been executing code, in seconds
+                        Gets the total amount of time the computer has been executing code, in seconds with a decimal
                     </td>
                 </tr>
                 <tr>
@@ -95,7 +103,7 @@
                         getUnixTime()
                     </td>
                     <td class="apilookupright">
-                        Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>, in seconds
+                        Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>, in seconds with a decimal
                     </td>
                 </tr>
                 <tr>
@@ -104,14 +112,6 @@
                     </td>
                     <td class="apilookupright">
                         Gets the current game lunar time
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        ToAsciiFromGLFW(code, mod = 0)
-                    </td>
-                    <td class="apilookupright">
-                        Converts GLFW codes to ascii
                     </td>
                 </tr>
             </table>
@@ -162,10 +162,20 @@
         </div>
         <div>
             <h3>
+                reboot()
+            </h3>
+            <p>
+                Restarts the computer
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
                 getTime()
             </h3>
             <p>
-                Gets the total amount of time the computer has been executing code, in seconds
+                Gets the total amount of time the computer has been executing code, in seconds with a decimal
             </p>
             <u>Parameters: None</u>
             <u style="margin-left: 15px;">Returns: Decimal</u>
@@ -175,7 +185,7 @@
                 getUnixTime()
             </h3>
             <p>
-                Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>, in seconds
+                Gets the current time in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>, in seconds with a decimal
             </p>
             <u>Parameters: None</u>
             <u style="margin-left: 15px;">Returns: Decimal</u>
@@ -194,16 +204,6 @@
                 <li>Midnight: 18000</li>
             </ul>
             <u>Parameters: None</u>
-            <u style="margin-left: 15px;">Returns: Integer</u>
-        </div>
-        <div>
-            <h3>
-                ToAsciiFromGLFW(code, mod = 0)
-            </h3>
-            <p>
-                Converts key codes from GLFW to ASCII, all codes in NEET are ascii by default but this function exists for legacy systems (Computer Craft integration)
-            </p>
-            <u>Parameters: Code[Integer], Mod[Integer] default value 0</u>
             <u style="margin-left: 15px;">Returns: Integer</u>
         </div>
     </div>

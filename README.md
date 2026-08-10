@@ -1,4 +1,4 @@
-# N.E.E.T. Computers
+# NEET Computers
 A Minecraft mod that adds well tested and cleverly implemented computers into your Minecraft world. They are capable of running custom scripts and interacting with the world around them through robots.
 
 # Documentation

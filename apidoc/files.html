@@ -9,7 +9,7 @@
 <body style="margin-top: 0; margin-bottom: 0;">
 <div id="body">
     <div id="header">
-        <h3>NEET docs</h3>
+        <h3>NEET Docs</h3>
         <div id="menu_buttons">
             <table>
                 <td>
@@ -27,23 +27,24 @@
     <div id="content">
         <div>
             <h1>Files documentation</h1>
+            <hr>
         </div>
         <div>
             <h2>Introductions</h2>
             <p>
-                The 'files' API is what gives lua programs the ability to interact with the parent computers folders, partitions and disks or generate file headers, it is <i>not</i>
-                the API for the files themselves, to read/write/append to files, view the <a href="./fileheaders.html">file header documentation</a>.
+                The <b>files</b> API is what gives Lua programs the ability to interact with the parent computer's folders, partitions, and disks. It is also able to generate file headers. It is <i>not</i>
+                the API for individual files, to read/write/append to files, view the <a href="./fileheaders.html">file header documentation</a>.
             </p>
             <p>
                 File paths are usually in the following format: "(partition):/(filename).(extension)" or "(partition):/(directory)/(filename).(extension)", and the disk number to operate on is a separate parameter, starting at zero
             </p>
             <p>
-                The file system also contains the ability to interface with multiple disks,
-                disk 0 is the home disk containing the computers internal files, and has appropriate restrictions.<br>
-                some disks are 'bootable' and contain an entrypoint for execution of the disks program contents, home disks with
+                The file system also contains the ability to interface with multiple disks.
+                Disk 0 is the home disk, which contains the computer's internal files, and has appropriate restrictions.<br>
+                Some disks are 'bootable' and contain an entrypoint for execution in the disks program contents. Disks with
                 an entrypoint to a non-existent file will fail to boot, and disks that contain an entrypoint can be crafted into the home disk of a new computer block.
             </p>
-            <p>The files api exists in the global space as "files" or "_G.files"</p>
+            <p>The <b>files</b> API exists in the global space as "files" or "_G.files"</p>
         </div>
         <div class="spacer"></div>
         <div>

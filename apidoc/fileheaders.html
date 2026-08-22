@@ -27,20 +27,21 @@
     <div id="content">
         <div>
             <h1>File Header documentation</h1>
+            <hr>
         </div>
         <div>
             <h2>Introductions</h2>
             <p>
-                When working with individual files, you will need to understand file "headers", the idea is the header is an object based off a file that can be used to read its data or push new data into it with
+                When working with individual files, the concept of file headers is important. The header is an object based off a file that can be used to read its data or push new data into it with
                 the risk of direct file interaction. Changes made to a header don't instantly change the file being represented, and reading will only capture the contents of the file when the header was "opened".
             </p>
             <p>
-                In NEET file headers are the only builtin way to interact with files themselves, however the rest of the file system is accesses via its <a href="files.html">perspective API</a>, and the files API is also <a href="files.html#open">where headers are created</a>
+                In NEET, file headers are the only builtin way to interact with files themselves, however the rest of the file system is accesses via its <a href="files.html">perspective API</a>, and the files API is also <a href="files.html#open">where headers are created</a>
             </p>
             <p>
-                For reference its good practice to "close" the header because as it's only a puppet of the real file, it's using up as much ram and some as the file does file pace! "closing" the header will make it inoperable but its good practice for mitigating memory leaks and playing nice with the game server.
+                For reference, it's good practice to "close" the header. This is because it's only a puppet of the real file, and it's using up as much RAM as the file itself! "closing" the header will make it inoperable, but its good practice for mitigating and minimizing memory leaks.
             </p>
-            <p>Note for people who know lua: although a header is an object, call its functions directly [header.seek()] instead of normal lua object notation [header:seek()], because unlike normal lua objects headers contain no table data, just pre-programed functions</p>
+            <p>Note for Lua people: although a header is an object, call its functions directly [header.seek()] instead of normal lua object notation [header:seek()], because unlike normal lua objects headers contain no table data, just pre-programed functions</p>
         </div>
         <div class="spacer"></div>
         <div>

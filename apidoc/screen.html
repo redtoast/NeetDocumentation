@@ -31,39 +31,17 @@
         <div>
             <h2>Introductions</h2>
             <p>
-                The screen API is a very large, maybe overcomplicated, mostly stable, powerful graphical tool that allows for advanced computer graphics.
-                It may look very intimidating, but I ask that you take things slowly with this api, as to not scare it away, its more scared of you than you are of it!
-            </p>
-            <p>The screen api exists in the global space as "screen" or "_G.screen"</p>
-            <h2>How does it work</h2>
-            <p>
-                As it is in totality a complicated system, we should break the graphics API into smaller pieces to ease our understanding.
-                First the system is <a href="https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics">double buffered</a>,
-                meaning that instead of draw functions writing to the screen being shown, graphics are first drawn to a invisible screen that can
-                be copied onto the visible screen, preventing the user from seeing half drawn graphics and visual artifacts, just remember to call draw() to render a new frame!
+                NEET Computers offer self-contained screen objects to aid in and facilitate computer graphics, With all computers
+                starting with a base object at "screen" or "_G.screen". This master screen object is special only in that it
+                provides a draw function to update the visible graphics of a computer from itself, colored screen peripherals also
+                use these objects and have a comparable function.
             </p>
             <p>
-                The drawing functions themselves will by default draw a color set in memory, here called the default color, unless given a specific
-                color to draw. Also included is a default Alpha value that cant be set per function call like normal color, Alpha transparency is a 0-255 value that tells the
-                api how transparent newly drawn graphics are, with 0 being invisible and 255 being opaque.
-            </p>
-            <p>
-                Another useful tool available is layers, layers share most functions with the screen, but both have center exclusive functions unique to themselves.
-                Layers are like small mini-screens that are not double buffered or inherently visible, however their graphics can be drawn onto other layers or the main screen.
-                Layers can be copied from other graphical objects or created blank!
-            </p>
-            <p>
-                Also, you can rotate all graphic operations using the provided functions to do so, which is pretty cool.
-            </p>
-            <h2>Why is the API like this</h2>
-            <p>
-                In short, I was bored. the majority of the API was written long before the rest of NEET computers while I was bored out of my mind in class,
-                the result is a graphics demo api being ported to minecraft because I think it's really cool, and it's my mod I make the rules
-            </p>
-            <p>
-                Although the entire API doesn't meet the same standards of polish as the other APIs, its quite reliable and functional,
-                however error handling is not always on point and circles aren't 100% symmetrical for some fucking reason I refuse to fix,
-                but you should be safe if you stick to shallow waters, which is what I recommend for people new to the mod or programing!
+                Screen objects can create other screen objects, not sharing any special functionality of their parent,
+                and these objects will support every useful graphical operation. If you desire to take advantage of a screen
+                objects speed optimizations, it's wise to avoid <a href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha values</a>
+                other than 255, and to use write/read data functions
+                to draw objects instead of manually using drawPixel or drawLine.
             </p>
         </div>
         <div class="spacer"></div>
@@ -71,227 +49,13 @@
             <h2>
                 Lookup table
             </h2>
-            <p>
-                note: "+ RGB" tag means the function can have its color manually overridden by appending red, green, and blue 0-255 color values after the normal parameters
-            </p>
             <table class="apilookup">
                 <tr>
                     <td class="apilookupleft">
                         getSize()
                     </td>
                     <td class="apilookupright">
-                        Gets the size of the screen / layer
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        setColor(R, G, B)
-                    </td>
-                    <td class="apilookupright">
-                        sets the default color for drawing operations
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        setColor(R, G, B, A)
-                    </td>
-                    <td class="apilookupright">
-                        sets the default color and alpha for drawing operations
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        setColor(A)
-                    </td>
-                    <td class="apilookupright">
-                        sets the default alpha for drawing operations
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        substituteColor(R1, G1, B1, R2, G2, B2)
-                    </td>
-                    <td class="apilookupright">
-                        replaces colors on the screen
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        substituteColor(R1, G1, B1, A1, R2, G2, B2, A2)
-                    </td>
-                    <td class="apilookupright">
-                        replaces colors on the screen including opacity
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        setRotation(angle, x, y)
-                    </td>
-                    <td class="apilookupright">
-                        Rotates all drawing operations around x, y by the angle
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        setRotation(angle)
-                    </td>
-                    <td class="apilookupright">
-                        Rotates complex drawing operations around their center by the angle
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        setRotation()
-                    </td>
-                    <td class="apilookupright">
-                        Stops all rotation
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        copy(x1, y1, x2, y2)
-                    </td>
-                    <td class="apilookupright">
-                        Copies the given region to a new layer object
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawLayer(x, y, layer)
-                    </td>
-                    <td class="apilookupright">
-                        Draws the contents of a layer to the screen starting at the coordinates
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawLayer(x, y, cx1, cy1, cx2, cy2, layer)
-                    </td>
-                    <td class="apilookupright">
-                        Draws the contents of a layer to the screen starting at the coordinates, cropped with the cx coordinates (and can be flipped by reversing them)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawPixels(x, y, buffer, width = nil, height = nil)
-                    </td>
-                    <td class="apilookupright">
-                        Draws a raw buffer of color data to the screen
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawPixel(x, y) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Draws a pixel at the point
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawLine(x1, y1 ,x2, y2) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Draws a line between the two points
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawRectangle(x1, y1, x2, y2) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Draws a hollow rectangle over the region
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawCircle(x1, y1, x2, y2) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Attempts to draw a circle within the given region
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawCircle(x, y, radius) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        draws a circle at the given point
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawPolygon(x, y, n, radius) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Draws a <a href="https://en.wikipedia.org/wiki/Regular_polygon">regular polygon</a> with n sides at the point given
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawBezier(x1, y1, x2, y2, x3, y3) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Draws a <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">B&#x00E9zier curve</a> through the points
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawSpline(Xs, Ys) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Draws a <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">spline</a> through all the points
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        drawSpline(points) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Also draws a spline through all the points
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        toRadius(n, apothem)
-                    </td>
-                    <td class="apilookupright">
-                        Converts an <a href="https://en.wikipedia.org/wiki/Apothem">apothem</a> and n sides to an applicable radius for drawing polygons
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        fill() + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Sets the entire screen to a color
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        fill(x1, y1, x2, y2) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Sets a specific region of the screen to a color
-                    </td>
-                </tr>
-                <tr>
-                    <td class="apilookupleft">
-                        floodFill(x, y, tolerance = 0) + RGB
-                    </td>
-                    <td class="apilookupright">
-                        Preforms a <a href="https://en.wikipedia.org/wiki/Flood_fill">flood fill</a> at the position with an optional color tolerance [0-255]
-                    </td>
-                </tr>
-            </table>
-            <h3>Screen exclusive functions</h3>
-            <table class="apilookup">
-                <tr>
-                    <td class="apilookupleft">
-                        draw()
-                    </td>
-                    <td class="apilookupright">
-                        Draws all changes made to the object onto the visible screen
+                        Gets the size of the screen
                     </td>
                 </tr>
                 <tr>
@@ -299,18 +63,95 @@
                         createLayer(sizeX, sizeY)
                     </td>
                     <td class="apilookupright">
-                        creates a new blank layer
+                        Creates a blank screen object without rendering capabilities
                     </td>
                 </tr>
-            </table>
-            <h3>Layer exclusive functions</h3>
-            <table class="apilookup">
                 <tr>
                     <td class="apilookupleft">
-                        getAsArray()
+                        clone(x1, y1, x2, y2)
                     </td>
                     <td class="apilookupright">
-                        Gets the layer as raw data
+                        Clones the given sector of the screen onto a new screen object without rendering capabilities
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        substitute(srcR, srcG, srcB, destR, destG, destB)
+                    </td>
+                    <td class="apilookupright">
+                        Swaps the color src with the color dest, doesn't support alpha values
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        writeData(x, y, buffer, width)
+                    </td>
+                    <td class="apilookupright">
+                        Writes binary data to the screen (examples below)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        readData(x1, y1, x2, y2)
+                    </td>
+                    <td class="apilookupright">
+                        Reads the given sector as a block of writeData compatible binary data
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        writePixel(x, y, R, G, B, A = 255)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the pixel to the given color
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        readPixel(x, y)
+                    </td>
+                    <td class="apilookupright">
+                        Reads the color of one pixel
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        writeLine(x1, y1, x2, y2, R, G, B, A = 255)
+                    </td>
+                    <td class="apilookupright">
+                        Draws a line between and including two points
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        fill(x1, y1, x2, y2, R, G, B, A = 255)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the given sector of the screen to one color
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        set(R, G, B, A = 255)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the entirety of the screen to one color
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        set()
+                    </td>
+                    <td class="apilookupright">
+                        Sets the entirety of the screen to black
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        draw()
+                    </td>
+                    <td class="apilookupright">
+                        Updates the screen if its rendering compatible
                     </td>
                 </tr>
             </table>
@@ -322,34 +163,59 @@
             </h2>
             <div>
                 <h3>
-                    drawPixels(x, y, buffer, width, height)
+                    getSize()
                 </h3>
                 <p>
-                    Draws a raw RGBA pixel buffer to the screen, with the top-left pixel placed at (x, y)
+                    Gets the size of the screen object.
                 </p>
+                <u>Parameters: None</u>
+                <u style="margin-left: 15px;">Returns: int, int</u>
+            </div>
+            <div>
+                <h3>
+                    createLayer(sizeX, sizeY)
+                </h3>
                 <p>
-                    The buffer is a flat, row-major sequence of 4 values per pixel in Red, Green, Blue, Alpha order, so its length must equal width * height * 4
+                    Creates a black screen object of the given size, the object will not possess a draw function.
                 </p>
+                <u>Parameters: sizeX[Integer], sizeY[Integer]</u>
+                <u style="margin-left: 15px;">Returns: Object</u>
+            </div>
+            <div>
+                <h3>
+                    clone(x1, y1, x2, y2)
+                </h3>
                 <p>
-                    Width and height are optional. If width is given but height is not, height is inferred from the buffer's length. If both are omitted, the buffer is assumed to be square and both dimensions are inferred from its length
+                    Clones the given region to a new screen object without a draw function, the new objects contents will be identical
+                    to the data of the original region.
                 </p>
-                <u>Parameters: X[Integer], Y[Integer], Buffer[List of Integers 0-255, or Bytes], Width[Integer] default value nil, Height[Integer] default value nil</u>
+                <u>Parameters: x1[Integer], y1[Integer], x2[Integer], y2[Integer]</u>
+                <u style="margin-left: 15px;">Returns: Object</u>
+            </div>
+            <div>
+                <h3>
+                    substitute(srcR, srcG, srcB, destR, destG, destB)
+                </h3>
+                <p>
+                    Replaces the color described with the src arguments for the color described with the dest arguments, this
+                    operation does not support alpha values, if your trying to replace a color drawn with transparency, you will
+                    have to know what RGB color was generated when it was blended with the screen.
+                </p>
+                <u>Parameters: srcR[Integer], srcG[Integer], srcB[Integer], destR[Integer], destG[Integer], destB[Integer]</u>
                 <u style="margin-left: 15px;">Returns: None</u>
+            </div>
+            <div>
+                <h3>
+                    writeData(x, y, buffer, width)
+                </h3>
                 <p>
-                    <u>Passing a Bytes value instead of a List/table is much faster for large buffers, since it's read directly instead of being unpacked element-by-element</u>
-                </p>
-                <p>
-                    The easiest way to build a Bytes buffer is with a plain Lua string, since strings are automatically treated as Bytes:
+                    Efficiently and quickly write a block of data to the screen. this block will be drawn at xy, and will be drawn to
+                    width, the height of the block is determined by the blocks size compared against its width.<br>
+                    The buffers length must be dividable by width * 4, and it constructed with alternating bytes for R, G, B, and A
+                    with this pattern repeating for each pixel drawn left to right, and the buffer object should be one single string of bytes.
+                    <br><u>Lua example below</u>
                 </p>
                 <pre>
--- Slow: a table (List), one Lua value + boundary check per element
-local buffer = {}
-for i = 1, width * height * 4 do
-    buffer[i] = someColorValue
-end
-screen.drawPixels(0, 0, buffer, width, height)
-
--- Fast: a Bytes buffer, built as a string
 local chunks = {}
 for py = 1, height do
     for px = 1, width do
@@ -357,14 +223,100 @@ for py = 1, height do
         chunks[#chunks + 1] = string.char(r, g, b, a)
     end
 end
-local buffer = table.concat(chunks)   -- joins everything in one pass
+local buffer = table.concat(chunks) --merges all chunks together in one pass for optimal speed
 
-screen.drawPixels(0, 0, buffer, width, height)
+screen.writeData(0, 0, buffer, width)
                 </pre>
-                <p>
-                    Don't build the buffer with repeated ".." concatenation in a loop (e.g. buffer = buffer .. string.char(...)), that rebuilds the whole string every iteration. Collecting chunks in a table and calling table.concat once keeps this O(n)
-                </p>
+                <u>Parameters: x[Integer], y[Integer], buffer[Bytes], width[Integer]</u>
+                <u style="margin-left: 15px;">Returns: None</u>
             </div>
+            <div>
+                <h3>
+                    readData(x1, y1, x2, y2)
+                </h3>
+                <p>
+                    Reads the full given area as a block of bytes, formatted the same way writeData accepts data.
+                    It is indeed possible to pass the output of readData to writeData, or preform other operations of it,
+                    it is noteworthy that the alpha values of the output block are <b>always</b> 255 or fully opaque, the output
+                    of any transparent operations already blended with the screen.
+                </p>
+                <u>Parameters: x1[Integer], y1[Integer], x2[Integer], y2[Integer]</u>
+                <u style="margin-left: 15px;">Returns: Bytes</u>
+            </div>
+            <div>
+                <h3>
+                    writePixel(x, y, R, G, B, A = 255)
+                </h3>
+                <p>
+                    Sets the single pixel at xy to the provided color.
+                </p>
+                <u>Parameters: x[Integer], y[Integer], R[Integer], G[Integer], B[Integer], A[Integer]</u>
+                <u style="margin-left: 15px;">Returns: None</u>
+            </div>
+            <div>
+                <h3>
+                    readPixel(x, y)
+                </h3>
+                <p>
+                    Reads the RGB color values of the given pixel, not including a alpha value which is assumed 255 or fully opaque.
+                    <br><u>Lua example below</u>
+                </p>
+                <pre>
+R, G, B = readPixel(x, y)
+                </pre>
+                <u>Parameters: x[Integer], y[Integer]</u>
+                <u style="margin-left: 15px;">Returns: Integer, Integer, Integer</u>
+            </div>
+            <div>
+                <h3>
+                    writeLine(x1, y1, x2, y2, R, G, B, A = 255)
+                </h3>
+                <p>
+                    Draws a line between and including the two points.
+                </p>
+                <u>Parameters: x1[Integer], y1[Integer], x2[Integer], y2[Integer], R[Integer], G[Integer], B[Integer], A[Integer]</u>
+                <u style="margin-left: 15px;">Returns: None</u>
+            </div>
+            <div>
+                <h3>
+                    fill(x1, y1, x2, y2, R, G, B, A = 255)
+                </h3>
+                <p>
+                    Fills the area between and including the two points with the color.
+                </p>
+                <u>Parameters: x1[Integer], y1[Integer], x2[Integer], y2[Integer], R[Integer], G[Integer], B[Integer], A[Integer]</u>
+                <u style="margin-left: 15px;">Returns: None</u>
+            </div>
+        </div>
+        <div>
+            <h3>
+                set(R, G, B, A = 255)
+            </h3>
+            <p>
+                Sets the entire screen to the provided color.
+            </p>
+            <u>Parameters: R[Integer], G[Integer], B[Integer], A[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                set()
+            </h3>
+            <p>
+                Sets the entire screen to the black.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
+        </div>
+        <div>
+            <h3>
+                draw()
+            </h3>
+            <p>
+                If the screen object has rendering capabilities, this function updates the renderer, and is required to display changes to the screen object.
+            </p>
+            <u>Parameters: None</u>
+            <u style="margin-left: 15px;">Returns: None</u>
         </div>
     </div>
 </div>

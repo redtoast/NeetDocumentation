@@ -4,7 +4,7 @@
     <!-- deeply inspired by and plagiarised from https://thebestmotherfucking.website/ -->
     <link rel="stylesheet" type="text/css" href="./../homepage.css" />
     <link rel="icon" href="https://red-toast.net/assets/logo.png">
-    <title>Drive Bay documentation - NEET</title>
+    <title>Access Point documentation - NEET</title>
 </head>
 <body style="margin-top: 0; margin-bottom: 0;">
 <div id="body">
@@ -26,19 +26,16 @@
     </div>
     <div id="content">
         <div>
-            <h1>Drive Bay Documentation</h1>
+            <h1>Access Point Documentation</h1>
             <hr>
         </div>
         <div>
             <h2>Introduction</h2>
             <p>
-                The Drive Bay has one item slot for a disk item to be inserted into. The contained disk automatically mounts to attached computers.
+                The access point is a simple wireless relay peripheral that can cast messages over a distance.
             </p>
             <p>
-                Please see <a href="../apidoc/files.html">files</a> API for using the attached drive.
-            </p>
-            <p>
-                The drive bay is categorized as "neetcomputers:drive_bay" in the IO API
+                The access point is categorized as "neetcomputers:access_point" in the IO API
             </p>
         </div>
         <div class="spacer"></div>
@@ -49,18 +46,26 @@
             <table class="apilookup">
                 <tr>
                     <td class="apilookupleft">
-                        getItem()
+                        broadcast(arguments...)
                     </td>
                     <td class="apilookupright">
-                        Gets the id of the item inserted
+                        Broadcasts the arguments to all other access points in range
                     </td>
                 </tr>
                 <tr>
                     <td class="apilookupleft">
-                        hasDisk()
+                        getRange()
                     </td>
                     <td class="apilookupright">
-                        Checks if a valid disk item is inserted
+                        Gets the configured range for the access point, 500 by default
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        setRange(range)
+                    </td>
+                    <td class="apilookupright">
+                        Sets the configured range of the access point, limited to 500 blocks
                     </td>
                 </tr>
             </table>
@@ -71,64 +76,63 @@
         </h2>
         <div>
             <h3>
-                getItem()
+                broadcast(arguments...)
             </h3>
             <p>
-                Gets the id of the item inserted, or null if the bay is empty
+                Broadcasts the arguments to all other access points in range
             </p>
-            <u>Parameters: None</u>
-            <u style="margin-left: 15px;">Returns: String or nil</u>
+            <u>Parameters: Arguments[Any primitive]...</u>
+            <u style="margin-left: 15px;">Returns: None</u>
         </div>
         <div>
             <h3>
-                hasDisk()
+                getRange()
             </h3>
             <p>
-                Checks if a valid disk item is inserted and by proxy is attached to the computer
+                Gets the configured range for the access point, 500 by default
             </p>
             <u>Parameters: None</u>
-            <u style="margin-left: 15px;">Returns: Boolean</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                setRange(range)
+            </h3>
+            <p>
+                Sets the configured range of the access point, limited to 500 blocks
+            </p>
+            <u>Parameters: Range[Integer]</u>
+            <u style="margin-left: 15px;">Returns: None</u>
         </div>
         <div class="spacer"></div>
         <div>
             <h2>
                 Event table
             </h2>
-            <p style="margin-bottom:2px;">DiskAttached [Peripheral]</p>
+            <p style="margin-bottom:2px;">received [Peripheral]</p>
             <table class="apilookup">
                 <tr>
                     <td class="eventuppercells">
-                        <span>neetcomputers:drive_bay[String]</span>
+                        <span>neetcomputers:access_point[String]</span>
                     </td>
                     <td class="eventuppercells">
                         <span>UUID[String]</span>
                     </td>
                     <td class="eventuppercells">
-                        <span>DiskAttached[String]</span>
+                        <span>received[String]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="eventuppercells">
+                        <span>distance[Number]</span>
+                    </td>
+                    <td colspan="2" class="eventuppercells">
+                        <span>Arguments...[Any]</span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3"  class="eventlowercells">
-                        <span>Triggered when a disk is inserted into an empty drive bay or a disk having bay is attached to the computer</span>
-                    </td>
-                </tr>
-            </table>
-            <p style="margin-bottom:2px;">DiskDetached [Peripheral]</p>
-            <table class="apilookup">
-                <tr>
-                    <td class="eventuppercells">
-                        <span>neetcomputers:drive_bay[String]</span>
-                    </td>
-                    <td class="eventuppercells">
-                        <span>UUID[String]</span>
-                    </td>
-                    <td class="eventuppercells">
-                        <span>DiskDetached[String]</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3"  class="eventlowercells">
-                        <span>Triggered when a disk is removed from the drive bay or the drive bay is disconnected</span>
+                        <span>Triggered when an access point receives a message</span>
                     </td>
                 </tr>
             </table>

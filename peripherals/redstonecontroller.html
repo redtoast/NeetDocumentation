@@ -38,7 +38,7 @@
             <p>
                 Note that the Redstone Controller will accept both relative (left, right, front, back, top, bottom), and cardinal
                 directions (north, south, east, west, up, down). The block's texture also has labels for its left and right sides if
-                your dislezic like I am. <!-- I'm sorry, I had to -->
+                your dyslectic like I am.
             </p>
             The Redstone Controller is categorized as "neetcomputers:redstone_controller" in the IO API
         </div>
@@ -54,6 +54,14 @@
                     </td>
                     <td class="apilookupright">
                         Detects and returns the redstone power level at the given side
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
+                        getComparator(side)
+                    </td>
+                    <td class="apilookupright">
+                        Detects and returns the redstone power level at the given side, as a comparator would
                     </td>
                 </tr>
                 <tr>
@@ -124,6 +132,16 @@
             </h3>
             <p>
                 Detects and returns the redstone power level at the given side
+            </p>
+            <u>Parameters: Side[String]</u>
+            <u style="margin-left: 15px;">Returns: Integer</u>
+        </div>
+        <div>
+            <h3>
+                getComparator(side)
+            </h3>
+            <p>
+                Detects and returns the redstone power level at the given side, as a comparator would
             </p>
             <u>Parameters: Side[String]</u>
             <u style="margin-left: 15px;">Returns: Integer</u>

@@ -158,6 +158,14 @@
                 </tr>
                 <tr>
                     <td class="apilookupleft">
+                        diskExists(disk)
+                    </td>
+                    <td class="apilookupright">
+                        Checks if the disk exists
+                    </td>
+                </tr>
+                <tr>
+                    <td class="apilookupleft">
                         getNumberOfDisks()
                     </td>
                     <td class="apilookupright">
@@ -174,10 +182,10 @@
                 </tr>
                 <tr>
                     <td class="apilookupleft">
-                        getDiskID(disk)
+                        getDiskReaderID(disk)
                     </td>
                     <td class="apilookupright">
-                        Gets the UUID of the disk
+                        Gets the UUID of the disk reading device
                     </td>
                 </tr>
                 <tr>
@@ -354,6 +362,16 @@
         </div>
         <div>
             <h3>
+                diskExists()
+            </h3>
+            <p>
+                Checks if the disk exists
+            </p>
+            <u>Parameters: Disk[Integer]</u>
+            <u style="margin-left: 15px;">Returns: Bool</u>
+        </div>
+        <div>
+            <h3>
                 getNumberOfDisks()
             </h3>
             <p>
@@ -374,10 +392,10 @@
         </div>
         <div>
             <h3>
-                getDiskID(disk)
+                getDiskReaderID(disk)
             </h3>
             <p>
-                Gets the UUID of the disk
+                Gets the UUID of the disk reading device
             </p>
             <u>Parameters: Disk[Integer]</u>
             <u style="margin-left: 15px;">Returns: [String]</u>
